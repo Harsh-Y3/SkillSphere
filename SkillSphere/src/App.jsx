@@ -8,7 +8,7 @@ function App() {
 
   return (
     <> 
-      <h1>Pass word genrator</h1>
+      <h1 className='bg-blue-500'>Pass word genrator</h1>
       
     </>
   )
