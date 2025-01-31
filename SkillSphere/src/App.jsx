@@ -8,7 +8,9 @@ function App() {
 
   return (
     <> 
-     </>
+      <h1>Pass word genrator</h1>
+      
+    </>
   )
 }
 
