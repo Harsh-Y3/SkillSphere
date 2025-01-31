@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
 
 function App() {
@@ -9,6 +8,8 @@ function App() {
   return (
     <> 
       <h1 className='bg-blue-500'>Pass word genrator</h1>
+      <h1>password genrator</h1>
+
       
     </>
   )
