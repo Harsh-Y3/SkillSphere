@@ -7,8 +7,13 @@ function App() {
 
   return (
     <> 
-      <h1 className='bg-blue-500'>Pass word genrator</h1>
-      <h1>password genrator</h1>
+      {/* hereo uncle, header */}
+      {/* about uncle */}
+      {/* design hu */}
+
+      <h1 style= {{backgroundColor: '#eaeaea'}}> helo</h1>
+
+      {/* why us hu*/}
 
       
     </>
