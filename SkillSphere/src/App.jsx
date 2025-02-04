@@ -26,18 +26,19 @@ function App() {
           {/* leftside content */}
           <div className=" ">
             {/* heading */}
-            <h3 className=''>24/7 hassle-free </h3>
+            <h3 className='sticky '>24/7 hassle-free </h3>
             <h1 className='text-5xl font-bold'>home and businesses  </h1>
             <h1 className='text-5xl font-bold'>installation and Services</h1>
             {/* photo */}
+            <div className="sticky top-0">
             <div className="flex flex-col md:flex-row gap-4 p-6 bg-gray-100">
               {/* Left Column */}
-              <div className="flex-1 flex flex-col gap-4">
+              <div className="flex-1 flex flex-col gap-4 mt-5">
                 <div className="bg-white rounded-lg overflow-hidden shadow-md mt-10">
                   <img
                     src="https://wdtthemes.kinsta.cloud/mezan/wp-content/uploads/sites/4/2024/03/h1-about-img-01.jpg"
                     alt="Technician working"
-                    className="w-full h-fit" />
+                    className="w-[500px] h-fit" />
                   
                 </div>
                 
@@ -45,9 +46,9 @@ function App() {
             
             {/* Right Column */}
             
-            <div className="flex-1 flex flex-col gap-4 pt-4">
+            <div className="flex-1 flex flex-col gap-4 pt-4 ">
             {/* Stats Section */}
-            <div className="bg-yellow-500 text-white rounded-lg p-6 shadow-md flex flex-col items-center justify-center absolute z-50 left-[25%] top-[60%] ">
+            <div className="bg-yellow-500 text-white rounded-lg p-6 shadow-md flex flex-col items-center justify-center absolute z-50 left-[40%] top-[40%] ">
                 <h2 className="text-3xl font-bold">560+</h2>
                 <p className="text-lg">Projects Done</p>
                 <h2 className="text-3xl font-bold mt-4">180+</h2>
@@ -70,7 +71,7 @@ function App() {
               </div>
             </div>
           </div>
-          
+          </div>
           </div>
           {/* right content */}
           <div className=" p-5">
@@ -79,11 +80,11 @@ function App() {
             
               <p>Imperdiet massa tincidunt nunc pulvinar sapien. Sit amet facilisis magna etiam odio mollis mollis. Integer lacus ligula, imperdiet vel massa in, maximus suscipit turpis. Mauris ac risus sed quam semper auctor. Nam tempus volutpat ipsum, non viverra</p>
             </div>
-            <div className="pt-10 pl-2">
+            <div className="pt-20  group-hover:scale-110 trabnsition-all duration-300">
               <div className=''>
-                <div className="mt-10 flex">
-                  <div className='flex'>
-                    <img src={worker} alt="" className='w-[120px] h-[60px] '/>
+                <div className="mt-10 flex hover:">
+                  <div className='flex '>
+                    <img src={worker} alt="" className='w-[120px] h-[60px]  bg-blue-200 rounded-full  hover:bg-blue-500 hover:scale-110 hover: transition-all duration-300'/>
                   </div>
                   <div className='pl-4'>
                     <h1 className='font-bold text-xl ml-2'>Earliest Consultation</h1>
@@ -95,9 +96,9 @@ function App() {
               </div>
               
               <div className=''>
-                <div className="mt-10 flex">
+                <div className="mt-10 pt-5 flex">
                   <div className='flex'>
-                   <img src={docs} alt="" className='w-[120px] h-[60px] before:bg-slate-200'/>
+                   <img src={docs} alt="" className='w-[120px] h-[60px]   bg-blue-200 rounded-full  hover:bg-blue-500 hover:scale-110 hover: transition-all duration-300'/>
                   </div>
                   <div className='pl-4'>
                    <h1 className='font-bold text-xl ml-2'>Customized Solution</h1>
@@ -108,9 +109,9 @@ function App() {
                
               </div>
               <div className=''>
-                <div className="mt-10 flex">
+                <div className="mt-10 pt-5 flex">
                   <div className='flex'>
-                   <img src={money} alt="" className='w-[120px] h-[60px] before:bg-slate-200'/>
+                   <motion.img src={money} alt="" className='w-[120px] h-[60px] bg-blue-200 rounded-full  hover:bg-blue-500 hover:scale-110 hover: transition-all duration-300'/>
                   </div>
                   <div className='pl-4'>
                     <h1 className='font-bold text-xl ml-2'>Affordable Pricing</h1>
@@ -121,9 +122,9 @@ function App() {
                
               </div>
               <div className=''>
-                <div className="mt-10 flex">
+                <div className="mt-10 pt-5 flex ">
                   <div className='flex'>
-                   <img src={service} alt="" className='w-[120px] h-[60px] before:bg-slate-200'/>
+                   <img src={service} alt="" className='w-[120px] h-[60px] bg-blue-200 rounded-full  hover:bg-blue-500 hover:scale-110 hover: transition-all duration-300'/>
                   </div>
                   <div className='pl-4'>
                     <h1 className='font-bold text-xl ml-2'>All-In-One Service</h1>
@@ -134,7 +135,7 @@ function App() {
                
               </div>
 
-             <div className="flex pt-10">
+             <div className="flex pt-20">
               <button className='border rounded-full bg-red-950 w-[122px] h-[50px] text-white text-xl'>Read More</button>
               <div className="pl-[50px] flex">
                 <div>
