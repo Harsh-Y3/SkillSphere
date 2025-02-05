@@ -20,7 +20,7 @@ function App() {
 
       {/* design hu */}
 
-      <motion.div className=' p-5  bg-gray-100'>
+      <motion.div className=' p-5  bg-gray-100 '>
         {/* main secction */}
         <div className='flex justify-center left-10 '>
           {/* leftside content */}
@@ -76,9 +76,9 @@ function App() {
           {/* right content */}
           <div className=" p-5">
             
-            <div className=" w-[500px]">
+            <div className=" w-[500px] border-l-4 border-black">
             
-              <p>Imperdiet massa tincidunt nunc pulvinar sapien. Sit amet facilisis magna etiam odio mollis mollis. Integer lacus ligula, imperdiet vel massa in, maximus suscipit turpis. Mauris ac risus sed quam semper auctor. Nam tempus volutpat ipsum, non viverra</p>
+              <p className='pl-3'>Imperdiet massa tincidunt nunc pulvinar sapien. Sit amet facilisis magna etiam odio mollis mollis. Integer lacus ligula, imperdiet vel massa in, maximus suscipit turpis. Mauris ac risus sed quam semper auctor. Nam tempus volutpat ipsum, non viverra</p>
             </div>
             <div className="pt-20  group-hover:scale-110 trabnsition-all duration-300">
               <div className=''>
@@ -153,7 +153,7 @@ function App() {
     
 
       </motion.div>
-      
+        
 
 
       {/* why us hu*/}
