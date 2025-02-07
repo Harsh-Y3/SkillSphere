@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import logo from './assets/Logo.jpg'
 import './App.css'
-import {motion} from 'framer-motion'
+import {delay, motion} from 'framer-motion'
 import icons from './assets/assets'
 
 
@@ -90,11 +90,15 @@ function App() {
         </div>
         </div>
 
-      {/* about uncle */}
+      {/* about hu */}
       <div className="flex justify-center bg-blue-100 h-full pt-10 pb-[100px]  rounded-t-none rounded-b-full rounded-r-none rounded-l-none">
       <div className="relative rounded-lg">
-      <h2 className="text-center text-5xl  mb-6 pb-10">ABOUT US</h2>
-      <h1 className="text-center text-6xl font-bold pb-20">We Offer Plumbing Work Since 1967</h1>
+      <motion.h2 className="text-center text-5xl font-semibold mb-6 pb-10"
+      initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}
+      >ABOUT US</motion.h2>
+      <motion.h1 className="text-center text-6xl font-bold pb-20"
+      initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 , deplay: 0.2}} viewport={{ once: true }}
+      >We Offer Plumbing Work Since 1967</motion.h1>
 
       {/* Slider Content */}
       <div className="flex overflow-hidden">
@@ -106,9 +110,10 @@ function App() {
           }}
         >
           {data.map((item, index) => (
-            <div
+            <motion.div
               key={index}
               className=" flex flex-shrink-0 w-[32.0%] h-[200px] p-4 pr-0 text-center gap-10 bg-white rounded-3xl mx-2  hover:bg-blue-500 hover:transition-transform duration-300 hover:text-white"
+              initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, deplay: 0.4 }} viewport={{ once: true }}
             >
               <div className='content-evenly'>
                 <img src={item.icon} alt="" className='w-[130px] h-[90px] p-2 top-10 '/>
@@ -117,7 +122,7 @@ function App() {
                 <h3 className="text-xl font-bold">{item.title}</h3>
                 <p className=" mt-2 font-bold">{item.description}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -125,13 +130,14 @@ function App() {
       {/* Dots Navigation */}
       <div className="flex justify-center mt-4 pt-10 space-x-2">
         {Array.from({ length: Math.ceil(data.length / visibleBoxes) }).map((_, index) => (
-          <button
+          <motion.button
             key={index}
             onClick={() => handleDotClick(index)}
             className={`h-3 w-3 rounded-full ${
               currentIndex === index ? "bg-blue-500" : "bg-gray-400"
             }`}
-          ></button>
+            initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}
+          ></motion.button>
         ))}
       </div>
     </div>
@@ -145,13 +151,15 @@ function App() {
         {/* main secction */}
         <div className='flex justify-center left-10 '>
           {/* leftside content */}
-          <div className=" ">
+          <motion.div className=" "
+          initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1,  }} viewport={{ once: true }}>
             {/* heading */}
             <h3 className=''>24/7 hassle-free </h3>
             <h1 className='text-5xl font-bold'>home and businesses  </h1>
             <h1 className='text-5xl font-bold'>installation and Services</h1>
             {/* photo */}
-            <div className="!sticky top-0">
+            <motion.div className="!sticky top-0 "
+            initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.3  }} viewport={{ once: true }}>
             <div className="flex flex-col md:flex-row gap-4 p-6 bg-gray-100">
               {/* Left Column */}
               <div className="flex-1 flex flex-col gap-4 mt-5">
@@ -192,16 +200,20 @@ function App() {
               </div>
             </div>
           </div>
-          </div>
-          </div>
+          </motion.div>
+          </motion.div>
           {/* right content */}
           <div className=" p-5">
             
             <div className=" w-[500px] border-l-4 border-black">
             
-              <p className='pl-3'>Imperdiet massa tincidunt nunc pulvinar sapien. Sit amet facilisis magna etiam odio mollis mollis. Integer lacus ligula, imperdiet vel massa in, maximus suscipit turpis. Mauris ac risus sed quam semper auctor. Nam tempus volutpat ipsum, non viverra</p>
+              <motion.p className='pl-3'
+              initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1,  }} viewport={{ once: true }}
+              >Imperdiet massa tincidunt nunc pulvinar sapien. Sit amet facilisis magna etiam odio mollis mollis. Integer lacus ligula, imperdiet vel massa in, maximus suscipit turpis. Mauris ac risus sed quam semper auctor. Nam tempus volutpat ipsum, non viverra</motion.p>
             </div>
-            <div className="pt-20  group-hover:scale-110 trabnsition-all duration-300">
+            <motion.div className="pt-20  group-hover:scale-110 trabnsition-all duration-300"
+             initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.3 }} viewport={{ once: true }}
+            >
               <div className=''>
                 <div className="mt-10 flex hover:">
                   <div className='flex '>
@@ -268,7 +280,7 @@ function App() {
                   </div>
               </div>
              </div>
-            </div>
+            </motion.div>
           </div>
         </div>
     
