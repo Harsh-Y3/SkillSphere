@@ -2,81 +2,110 @@ import { useState } from 'react'
 import logo from './assets/Logo.jpg'
 import './App.css'
 import {motion} from 'framer-motion'
-import worker from './assets/worker.png'
-import docs from './assets/docs.png'
-import money from './assets/money.png'
-import service from './assets/service.png'
-import call from './assets/call.png'
-
+import icons from './assets/assets'
 
 function App() {
   const [count, setCount] = useState(0)
-  const items = [
-    { title: 'Slide 1', content: 'This is the content for slide 1. You can put any text here.' },
-    { title: 'Slide 2', content: 'This is the content for slide 2. You can put any text here.' },
-    { title: 'Slide 3', content: 'This is the content for slide 3. You can put any text here.' },
-    { title: 'Slide 3', content: 'This is the content for slide 3. You can put any text here.' },
-    { title: 'Slide 3', content: 'This is the content for slide 3. You can put any text here.' },
-    { title: 'Slide 3', content: 'This is the content for slide 3. You can put any text here.' },
-    { title: 'Slide 3', content: 'This is the content for slide 3. You can put any text here.' },
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const data = [
+    {
+      icon: icons.money,
+      title: "Affordable Pricing",
+      description: "Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam.",
+    },
+    {
+      icon: icons.license,
+      title: "Licensed Technicians",
+      description: "Aldus Corporation, which later merged with Adobe Systems.",
+    },
+    {
+      icon: icons.star,
+      title: "Top Rated Service",
+      description: "Lacinia quis vel eros donec. Ullamcorper a lacus vestibulum sed.",
+    },
+    {
+      icon: icons.support,
+      title: "24/7 Support",
+      description: "We provide round-the-clock assistance for all your needs.",
+    },
+    {
+      icon: icons.eco,
+      title: "Eco-Friendly Solutions",
+      description: "Sustainable and eco-friendly plumbing practices for a better tomorrow.",
+    },
+    {
+      icon: icons.star,
+      title: "Top Rated Service",
+      description: "Lacinia quis vel eros donec. Ullamcorper a lacus vestibulum sed.",
+    },
+    {
+      icon: icons.star,
+      title: "Timely Service",
+      description: "Lacinia quis vel eros donec. Ullamcorper a lacus vestibulum sed.",
+    },
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const visibleBoxes = 3; // Number of boxes to show at once
 
   const handleDotClick = (index) => {
     setCurrentIndex(index);
   };
 
-  // Add a class to apply transition styles
-  const getTransitionClass = (index) => {
-    return index === currentIndex ? "opacity-100" : "opacity-50";
-  };
+
 
   return (
-    <> 
+    <div className=''> 
       {/* hereo uncle, header */}
       {/* about uncle */}
+      <div className="flex justify-center bg-blue-100 h-full pt-10 pb-[100px]  rounded-t-none rounded-b-full rounded-r-none rounded-l-none">
+      <div className="relative rounded-lg">
+      <h2 className="text-center text-5xl  mb-6 pb-10">ABOUT US</h2>
+      <h1 className="text-center text-6xl font-bold pb-20">We Offer Plumbing Work Since 1967</h1>
 
-      <div className="container mx-auto p-4">
-        <h1 className="text-2xl font-bold mb-4">About Us</h1>
-        <h1 className='text-4xl'> Lorem ipsum dolor sit, amet consectetur adipisicing. </h1>
-        <div className="relative w-full overflow-hidden" style={{ padding: '0 10%' }}>
-          
-          <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 33.33}%)`, width: `${items.length * 100 / 3}%` }}>
-            {items.map((item, index) => (
-              <div className={`flex-shrink-0 left-10 ${getTransitionClass(index)}`} key={index}>
-                <div className=" w-[509px] h-[192px] pt-4 bg-white rounded shadow-md text-center mx-1 hover:bg-blue-500 hover:transition-all duration-500">
-                  <h2 className="text-xl font-bold mb-2">{item.title}</h2>
-                  <p>{item.content}</p>
-                </div>
+      {/* Slider Content */}
+      <div className="flex overflow-hidden">
+        <div
+          className="flex transition-transform duration-500 ease-in-out "
+          style={{
+            transform: `translateX(-${currentIndex * (100 / visibleBoxes)}%)`,
+            width: `${(data.length / visibleBoxes) * 100}%`,
+          }}
+        >
+          {data.map((item, index) => (
+            <div
+              key={index}
+              className=" flex flex-shrink-0 w-[32.0%] h-[200px] p-4 pr-0 text-center gap-10 bg-white rounded-3xl mx-2  hover:bg-blue-500 hover:transition-transform duration-300 hover:text-white"
+            >
+              <div className='content-evenly'>
+                <img src={item.icon} alt="" className='w-[130px] h-[90px] p-2 top-10 '/>
               </div>
-            ))}
-            {/* Duplicate the first slide for a seamless loop effect */}
-            <div className="w-1/3 flex-shrink-0">
-              <div className="p-4 bg-gray-100 rounded shadow-md text-center mx-1">
-                <h2 className="text-xl font-bold mb-2">{items[0].title}</h2>
-                <p>{items[0].content}</p>
+              <div className='text-center pt-7 mr-7'>
+                <h3 className="text-xl font-bold">{item.title}</h3>
+                <p className=" mt-2 font-bold">{item.description}</p>
               </div>
             </div>
-          </div>
-          <div className="flex justify-center mt-4">
-            {items.map((item, index) => (
-              <button
-                key={index}
-                onClick={() => handleDotClick(index)}
-                className={`h-2 w-2 rounded-full mx-1 ${currentIndex === index ? 'bg-blue-600' : 'bg-gray-400'}`}
-              />
-            ))}
-            {/* Add a dot button to return to the first slide */}
-            <button
-              onClick={() => handleDotClick(0)}
-              className={`h-2 w-2 rounded-full mx-1 ${currentIndex === 0 ? '' : 'bg-gray-400'}`}
-            >
-              •
-            </button>
-          </div>
+          ))}
         </div>
       </div>
+
+      {/* Dots Navigation */}
+      <div className="flex justify-center mt-4 pt-10 space-x-2">
+        {Array.from({ length: Math.ceil(data.length / visibleBoxes) }).map((_, index) => (
+          <button
+            key={index}
+            onClick={() => handleDotClick(index)}
+            className={`h-3 w-3 rounded-full ${
+              currentIndex === index ? "bg-blue-500" : "bg-gray-400"
+            }`}
+          ></button>
+        ))}
+      </div>
+    </div>
+    </div>
+
+
+     
       {/* design hu */}
 
       <motion.div className=' p-5  bg-gray-100 '>
@@ -85,11 +114,11 @@ function App() {
           {/* leftside content */}
           <div className=" ">
             {/* heading */}
-            <h3 className='sticky '>24/7 hassle-free </h3>
+            <h3 className=''>24/7 hassle-free </h3>
             <h1 className='text-5xl font-bold'>home and businesses  </h1>
             <h1 className='text-5xl font-bold'>installation and Services</h1>
             {/* photo */}
-            <div className="sticky top-0">
+            <div className="!sticky top-0">
             <div className="flex flex-col md:flex-row gap-4 p-6 bg-gray-100">
               {/* Left Column */}
               <div className="flex-1 flex flex-col gap-4 mt-5">
@@ -143,7 +172,7 @@ function App() {
               <div className=''>
                 <div className="mt-10 flex hover:">
                   <div className='flex '>
-                    <img src={worker} alt="" className='w-[120px] h-[60px]  bg-blue-200 rounded-full  hover:bg-blue-500 hover:scale-110 hover: transition-all duration-300'/>
+                    <img src={icons.worker} alt="" className='w-[120px] h-[60px]  bg-blue-200 rounded-full  hover:bg-blue-500 hover:scale-110 hover: transition-all duration-300'/>
                   </div>
                   <div className='pl-4'>
                     <h1 className='font-bold text-xl ml-2'>Earliest Consultation</h1>
@@ -157,7 +186,7 @@ function App() {
               <div className=''>
                 <div className="mt-10 pt-5 flex">
                   <div className='flex'>
-                   <img src={docs} alt="" className='w-[120px] h-[60px]   bg-blue-200 rounded-full  hover:bg-blue-500 hover:scale-110 hover: transition-all duration-300'/>
+                   <img src={icons.docs} alt="" className='w-[120px] h-[60px]   bg-blue-200 rounded-full  hover:bg-blue-500 hover:scale-110 hover: transition-all duration-300'/>
                   </div>
                   <div className='pl-4'>
                    <h1 className='font-bold text-xl ml-2'>Customized Solution</h1>
@@ -170,7 +199,7 @@ function App() {
               <div className=''>
                 <div className="mt-10 pt-5 flex">
                   <div className='flex'>
-                   <motion.img src={money} alt="" className='w-[120px] h-[60px] bg-blue-200 rounded-full  hover:bg-blue-500 hover:scale-110 hover: transition-all duration-300'/>
+                   <motion.img src={icons.money} alt="" className='w-[120px] h-[60px] bg-blue-200 rounded-full  hover:bg-blue-500 hover:scale-110 hover: transition-all duration-300'/>
                   </div>
                   <div className='pl-4'>
                     <h1 className='font-bold text-xl ml-2'>Affordable Pricing</h1>
@@ -183,7 +212,7 @@ function App() {
               <div className=''>
                 <div className="mt-10 pt-5 flex ">
                   <div className='flex'>
-                   <img src={service} alt="" className='w-[120px] h-[60px] bg-blue-200 rounded-full  hover:bg-blue-500 hover:scale-110 hover: transition-all duration-300'/>
+                   <img src={icons.service} alt="" className='w-[120px] h-[60px] bg-blue-200 rounded-full  hover:bg-blue-500 hover:scale-110 hover: transition-all duration-300'/>
                   </div>
                   <div className='pl-4'>
                     <h1 className='font-bold text-xl ml-2'>All-In-One Service</h1>
@@ -198,7 +227,7 @@ function App() {
               <button className='border rounded-full bg-red-950 w-[122px] h-[50px] text-white text-xl'>Read More</button>
               <div className="pl-[50px] flex">
                 <div>
-                  <img src={call} alt="" className='w-12 h-12 pt-1'/>
+                  <img src={icons.call} alt="" className='w-12 h-12 pt-1'/>
                 </div>
                   <div className=' font-bold pl-4 '>
                     <p>contact</p>
@@ -218,11 +247,20 @@ function App() {
       {/* why us hu*/}
 
       
-    </>
+    </div>
   )
 }
 
 export default App
+
+
+
+
+
+
+
+
+
 
 
 
