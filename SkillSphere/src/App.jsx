@@ -8,14 +8,45 @@ import money from './assets/money.png'
 import service from './assets/service.png'
 import call from './assets/call.png'
 
-
-function App() {
-  const [count, setCount] = useState(0)
-
+function App() {  
   return (
     <> 
       {/* hereo uncle, header */}
+        <div className='relative h-screen w-full bg-gray-900 text-white'>
+        <div className="absolute inset-0">
+        <img src="https://i.pinimg.com/originals/4e/93/d7/4e93d726dda450fd18476f78bbf8388d.jpg" alt="Electrician working" className="w-full h-full object-cover opacity-60" />
+        </div>
+        <nav className="absolute top-0 left-0 right-0 flex justify-between items-center p-6 bg-black bg-opacity-70">
+          <div className="flex items-center space-x-2">
+            <div className="text-yellow-500 text-2xl font-bold flex items-center">
+            <img src={logo} alt="Logo" className="w-40 h-20 border-s-6 rounded-full"  />
+            </div>
+          </div>
+          <ul className="hidden md:flex space-x-6">
+            <li className="hover:text-yellow-500 cursor-pointer">Home</li>
+            <li className="hover:text-yellow-500 cursor-pointer">About Us</li>
+            <li className="hover:text-yellow-500 cursor-pointer">Shop</li>
+            <li className="hover:text-yellow-500 cursor-pointer">Blogs</li>
+            <li className="hover:text-yellow-500 cursor-pointer">Contact</li>
+          </ul>
+          <button className="bg-blue-500 text-black px-4 py-2 rounded-lg hover:bg-white hover:text-black transition duration-300">
+            Get A Quote
+          </button>
+        </nav>
+        <div className="absolute inset-0 flex flex-col justify-center items-start px-12 max-w-2xl">
+          <p className="text-sm uppercase tracking-wide">Let's Get To Work</p>
+          <h1 className="text-5xl font-bold mt-2 leading-tight">Honest, Trustworthy, And Does Good Work.</h1>
+          <p className="mt-4 text-lg text-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum soluta quas quisquam minus cupiditate perferendis, voluptatem illum consequuntur itaque quo.</p>
+          <div className="mt-6 flex space-x-4">
+            <button className="bg-blue-500 text-black px-4 py-2 rounded-lg hover:bg-white hover:text-black transition duration-300">Get A Quote</button>
+            <button className="bg-blue-500 text-black hover:bg-white hover:text-black transition duration-300 px-6 py-3 rounded-lg">Click here</button>
+          </div>
+        </div>
+        </div>
+
       {/* about uncle */}
+  
+
 
 
       {/* design hu */}
