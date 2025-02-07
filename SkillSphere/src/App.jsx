@@ -8,7 +8,32 @@ import money from './assets/money.png'
 import service from './assets/service.png'
 import call from './assets/call.png'
 
-function App() {  
+
+
+function App() {
+  const [count, setCount] = useState(0)
+  const items = [
+    { title: 'Slide 1', content: 'This is the content for slide 1. You can put any text here.' },
+    { title: 'Slide 2', content: 'This is the content for slide 2. You can put any text here.' },
+    { title: 'Slide 3', content: 'This is the content for slide 3. You can put any text here.' },
+    { title: 'Slide 3', content: 'This is the content for slide 3. You can put any text here.' },
+    { title: 'Slide 3', content: 'This is the content for slide 3. You can put any text here.' },
+    { title: 'Slide 3', content: 'This is the content for slide 3. You can put any text here.' },
+    { title: 'Slide 3', content: 'This is the content for slide 3. You can put any text here.' },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleDotClick = (index) => {
+    setCurrentIndex(index);
+  };
+
+  // Add a class to apply transition styles
+  const getTransitionClass = (index) => {
+    return index === currentIndex ? "opacity-100" : "opacity-50";
+  };
+
+
   return (
     <> 
       {/* hereo uncle, header */}
@@ -48,10 +73,49 @@ function App() {
   
 
 
-
+      <div className="container mx-auto p-4">
+        <h1 className="text-2xl font-bold mb-4">About Us</h1>
+        <h1 className='text-4xl'> Lorem ipsum dolor sit, amet consectetur adipisicing. </h1>
+        <div className="relative w-full overflow-hidden" style={{ padding: '0 10%' }}>
+          
+          <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentIndex * 33.33}%)`, width: `${items.length * 100 / 3}%` }}>
+            {items.map((item, index) => (
+              <div className={`flex-shrink-0 left-10 ${getTransitionClass(index)}`} key={index}>
+                <div className=" w-[509px] h-[192px] pt-4 bg-white rounded shadow-md text-center mx-1 hover:bg-blue-500 hover:transition-all duration-500">
+                  <h2 className="text-xl font-bold mb-2">{item.title}</h2>
+                  <p>{item.content}</p>
+                </div>
+              </div>
+            ))}
+            {/* Duplicate the first slide for a seamless loop effect */}
+            <div className="w-1/3 flex-shrink-0">
+              <div className="p-4 bg-gray-100 rounded shadow-md text-center mx-1">
+                <h2 className="text-xl font-bold mb-2">{items[0].title}</h2>
+                <p>{items[0].content}</p>
+              </div>
+            </div>
+          </div>
+          <div className="flex justify-center mt-4">
+            {items.map((item, index) => (
+              <button
+                key={index}
+                onClick={() => handleDotClick(index)}
+                className={`h-2 w-2 rounded-full mx-1 ${currentIndex === index ? 'bg-blue-600' : 'bg-gray-400'}`}
+              />
+            ))}
+            {/* Add a dot button to return to the first slide */}
+            <button
+              onClick={() => handleDotClick(0)}
+              className={`h-2 w-2 rounded-full mx-1 ${currentIndex === 0 ? '' : 'bg-gray-400'}`}
+            >
+              •
+            </button>
+          </div>
+        </div>
+      </div>
       {/* design hu */}
 
-      <motion.div className=' p-5  bg-gray-100'>
+      <motion.div className=' p-5  bg-gray-100 '>
         {/* main secction */}
         <div className='flex justify-center left-10 '>
           {/* leftside content */}
@@ -107,9 +171,9 @@ function App() {
           {/* right content */}
           <div className=" p-5">
             
-            <div className=" w-[500px]">
+            <div className=" w-[500px] border-l-4 border-black">
             
-              <p>Imperdiet massa tincidunt nunc pulvinar sapien. Sit amet facilisis magna etiam odio mollis mollis. Integer lacus ligula, imperdiet vel massa in, maximus suscipit turpis. Mauris ac risus sed quam semper auctor. Nam tempus volutpat ipsum, non viverra</p>
+              <p className='pl-3'>Imperdiet massa tincidunt nunc pulvinar sapien. Sit amet facilisis magna etiam odio mollis mollis. Integer lacus ligula, imperdiet vel massa in, maximus suscipit turpis. Mauris ac risus sed quam semper auctor. Nam tempus volutpat ipsum, non viverra</p>
             </div>
             <div className="pt-20  group-hover:scale-110 trabnsition-all duration-300">
               <div className=''>
@@ -184,7 +248,7 @@ function App() {
     
 
       </motion.div>
-      
+        
 
 
       {/* why us hu*/}
