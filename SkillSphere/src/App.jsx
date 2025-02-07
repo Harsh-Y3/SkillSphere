@@ -289,7 +289,37 @@ function App() {
         
 
 
-      {/* why us hu*/}
+      {/* Our service start */}
+      {/* our service main div */}
+      <div className="pt-[100px] bg-blue-100"> 
+
+        <div className="text-center">
+          <h1 className="font-semibold text-3xl">Our service</h1>
+          <h1 className="font-bold text-5xl mt-5">Complete Solution Under One Roof</h1>
+        </div>
+        <div>
+          <div className=" grid grid-cols-4">
+            <div className="w-10 h-10 bg-white gap-10">1</div>
+            <div className="w-10 h-10 bg-black   gap-10">2</div>
+            <div className="w-10 h-10 bg-white gap-10">3</div>
+            <div className="w-10 h-10 bg-black   gap-10">4</div>
+            <div className="w-10 h-10 bg-white gap-10">5</div>
+            <div className="w-10 h-10 bg-black gap-10">6</div>
+            <div className="w-10 h-10 bg-white gap-10">7</div>
+            <div className="w-10 h-10 bg-black gap-10">8</div>
+
+          </div>
+        </div>
+        <div className="flex">
+          <button></button>
+          <button></button>
+        </div>
+
+
+
+
+
+      </div>
 
       
     </div>
