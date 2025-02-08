@@ -7,6 +7,8 @@ import eco from './eco.png'
 import star from './star.png'
 import support from './support.png'
 import license from './license.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee, faHome, faHeart, faScrewdriver, faPlug, faHammer, faShower, faFireBurner, faDoorOpen, faHouse, faPaintRoller } from '@fortawesome/free-solid-svg-icons';
 
 const icons = 
 {
@@ -18,7 +20,17 @@ const icons =
     eco,
     star,
     support,
-    license
+    license,
+    coffee: faCoffee,
+    home: faHome,
+    tool: faScrewdriver,
+    plug: faPlug,
+    hammer: faHammer,
+    shower: faShower,
+    burner: faFireBurner,
+    door: faDoorOpen,
+    house: faHouse,
+    paint: faPaintRoller,
 
 
 }
