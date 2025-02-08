@@ -299,14 +299,19 @@ function App() {
         </div>
         <div>
           <div className=" grid grid-cols-4">
-            <div className="w-10 h-10 bg-white gap-10">1</div>
-            <div className="w-10 h-10 bg-black   gap-10">2</div>
-            <div className="w-10 h-10 bg-white gap-10">3</div>
-            <div className="w-10 h-10 bg-black   gap-10">4</div>
-            <div className="w-10 h-10 bg-white gap-10">5</div>
-            <div className="w-10 h-10 bg-black gap-10">6</div>
-            <div className="w-10 h-10 bg-white gap-10">7</div>
-            <div className="w-10 h-10 bg-black gap-10">8</div>
+          <div>
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                className="bi bi-heart"
+                viewBox="0 0 16 16"
+            >
+                <path d="..."></path>
+            </svg>
+        </div>
+
 
           </div>
         </div>

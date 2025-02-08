@@ -7,6 +7,8 @@ import eco from './eco.png'
 import star from './star.png'
 import support from './support.png'
 import license from './license.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee, faHome, faHeart } from '@fortawesome/free-solid-svg-icons';
 
 const icons = 
 {
