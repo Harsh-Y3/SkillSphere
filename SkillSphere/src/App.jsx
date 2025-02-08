@@ -72,10 +72,10 @@ function App() {
            
           </video>
         </div>
-        <nav className="absolute top-0 left-0 right-0 flex justify-between items-center p-4 bg-black bg-opacity-70">
+        <nav className="absolute top-[-50px] left-0 right-0 flex justify-between items-center p-4  bg-opacity-70">
           <div className="flex items-center space-x-2">
             <div className="text-yellow-500 text-2xl font-bold flex items-center">
-            <img src={logo} alt="Logo" className="w-40 h-20 border-s-6 rounded-full "/>
+            <img src={logo} alt="Logo" className="w-[250px] h-[150px] border-s-6 rounded-full mix-blend-lighten "/>
             </div>
           </div>
           <ul className="hidden md:flex space-x-6 text-lg gap-10" >
@@ -85,20 +85,28 @@ function App() {
             <li className="hover:text-yellow-500 cursor-pointer">Blogs</li>
             <li className="hover:text-yellow-500 cursor-pointer">Contact</li>
           </ul>
-          <button className="bg-blue-500 text-black px-4 py-2 rounded-lg hover:bg-white hover:text-black transition duration-300">
+          <button className="bg-blue-100 text-black px-4 py-2 rounded-lg hover:bg-blue-500 hover:text-black transition duration-300">
             Get A Quote
           </button>
         </nav>
         
         <motion.div className=" absolute inset-0 flex flex-col justify-center items-start px-12 max-w-2xl "
-          initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1,  }} viewport={{ once: true }}>
-          <p className="text-sm uppercase tracking-wide">Let's Get To Work</p>
-          <h1 className="text-5xl font-bold mt-2 leading-tight">Honest, Trustworthy, And Does Good Work.</h1>
-          <p className="mt-4 text-lg text-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum soluta quas quisquam minus cupiditate perferendis, voluptatem illum consequuntur itaque quo.</p>
-          <div className="mt-6 flex space-x-4">
-            <button className="bg-blue-500 text-black px-4 py-2 rounded-lg hover:bg-white hover:text-black transition duration-300">Get A Quote</button>
-            <button className="bg-blue-500 text-black hover:bg-white hover:text-black transition duration-300 px-6 py-3 rounded-lg">Click here</button>
-          </div>
+          >
+          <motion.p 
+          initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}
+          className="text-sm uppercase tracking-wide">Let's Get To Work</motion.p>
+          <motion.h1 
+          initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.2 }} viewport={{ once: true }}
+          className="text-5xl font-bold mt-2 leading-tight">Honest, Trustworthy, And Does Good Work.</motion.h1>
+          <motion.p 
+          initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.3 }} viewport={{ once: true }}
+          className="mt-4 text-lg text-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum soluta quas quisquam minus cupiditate perferendis, voluptatem illum consequuntur itaque quo.</motion.p>
+          <motion.div 
+          initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}
+          className="mt-6 flex space-x-4">
+            <button className="bg-blue-100 text-black px-4 py-2 rounded-lg hover:bg-blue-500 hover:text-black transition duration-300">Get A Quote</button>
+            <button className="bg-blue-100 text-black hover:bg-blue-500 hover:text-black transition duration-300 px-6 py-3 rounded-lg">Click here</button>
+          </motion.div>
         </motion.div>
         </div>
 
