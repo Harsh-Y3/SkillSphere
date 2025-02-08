@@ -3,11 +3,8 @@ import logo from './assets/Logo.jpg'
 import './App.css'
 import {delay, motion} from 'framer-motion'
 import icons from './assets/assets'
-<<<<<<< HEAD
 import background from './assets/background-vid-skillsphere.mp4'
-=======
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
->>>>>>> service
 
 
 function App() {
