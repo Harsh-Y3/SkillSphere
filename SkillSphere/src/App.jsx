@@ -3,6 +3,7 @@ import logo from './assets/Logo.jpg'
 import './App.css'
 import {delay, motion} from 'framer-motion'
 import icons from './assets/assets'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 function App() {
@@ -53,8 +54,9 @@ function App() {
     setCurrentIndex(index);
   };
 
-
-
+  const serviceStyle = "flex justify-center items-center <pt-13></pt-13> group p-4 w-[250px] h-[230px]  bg-white rounded-lg shadow-md  hover:bg-blue-500 hover:shadow-lg transition-shadow duration-300 ";
+ 
+  const serviceContentStyle = "text-blue-500 text-7xl transition-transform duration-300 group-hover:scale-125 group-hover:text-white";
   return (
     <div className=''> 
       {/* hereo uncle, header */}
@@ -297,22 +299,57 @@ function App() {
           <h1 className="font-semibold text-3xl">Our service</h1>
           <h1 className="font-bold text-5xl mt-5">Complete Solution Under One Roof</h1>
         </div>
-        <div>
-          <div className=" grid grid-cols-4">
-          <div>
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="currentColor"
-                className="bi bi-heart"
-                viewBox="0 0 16 16"
-            >
-                <path d="..."></path>
-            </svg>
-        </div>
-
-
+        <div className='pt-10'>
+          <div className=" grid grid-cols-4 gap-10 ml-20">
+            <div className={serviceStyle}>  
+            <FontAwesomeIcon
+            icon={icons.tool}
+            className={serviceContentStyle}
+            />
+            </div>
+          
+            <div className={serviceStyle}>  
+            <FontAwesomeIcon
+            icon={icons.plug}
+            className={serviceContentStyle}
+            />
+            </div>
+            <div className={serviceStyle}>  
+            <FontAwesomeIcon
+            icon={icons.hammer}
+            className={serviceContentStyle}
+            />
+            </div>
+            <div className={serviceStyle}>  
+            <FontAwesomeIcon
+            icon={icons.shower}
+            className={serviceContentStyle}
+            />
+            </div>
+            <div className={serviceStyle}>  
+            <FontAwesomeIcon
+            icon={icons.burner}
+            className={serviceContentStyle}
+            />
+            </div>
+            <div className={serviceStyle}>  
+            <FontAwesomeIcon
+            icon={icons.door}
+            className={serviceContentStyle}
+            />
+            </div>
+            <div className={serviceStyle}>  
+            <FontAwesomeIcon
+            icon={icons.house}
+            className={serviceContentStyle}
+            />
+            </div>
+            <div className={serviceStyle}>  
+            <FontAwesomeIcon
+            icon={icons.paint}
+            className={serviceContentStyle}
+            />
+            </div>           
           </div>
         </div>
         <div className="flex">
