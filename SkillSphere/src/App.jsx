@@ -88,12 +88,12 @@ function App() {
 
   const serviceHover = "flex justify-center items-center rounded-3xl group-hover:bg-blue-500 group-hover:bg-opacity-50  h-[250px] w-[270px]"
   return (
-    <div className=''> 
+    <div className=' overflow-hidden z-20'> 
       {/* hereo uncle, header */}
-        <div className='relative h-screen w-full bg-gray-900 text-white'>
+        <div className='relative h-screen w-full text-white'>
         <div className="absolute inset-0">
             <video 
-            className="absolute top-0 left-0 w-full h-full object-cover" 
+            className="  fixed -z-20  top-0 left-0 w-full h-full object-cover" 
             autoPlay 
             loop 
             muted 
@@ -267,7 +267,9 @@ function App() {
              initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.3 }} viewport={{ once: true }}
             >
               <div className=''>
-                <div className="mt-10 flex hover:">
+                <motion.div 
+                initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1, deplay:0.2 }} viewport={{ once: true }}
+                className="mt-10 flex hover:">
                   <div className='flex '>
                     <img src={icons.worker} alt="" className='w-[120px] h-[60px]  bg-blue-200 rounded-full  hover:bg-blue-500 hover:scale-110 hover: transition-all duration-300'/>
                   </div>
@@ -276,12 +278,14 @@ function App() {
                     <p className='text-l pl-2 pt-5'>Felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices. Aenean vel elit scelerisque mauris pellentesque consectetur adipiscing elitpulvinar.</p>
                   </div>
                
-                </div>
+                </motion.div>
                
               </div>
               
               <div className=''>
-                <div className="mt-10 pt-5 flex">
+                <motion.div 
+                initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.2 }} viewport={{ once: true }}
+                className="mt-10 pt-5 flex">
                   <div className='flex'>
                    <img src={icons.docs} alt="" className='w-[120px] h-[60px]   bg-blue-200 rounded-full  hover:bg-blue-500 hover:scale-110 hover: transition-all duration-300'/>
                   </div>
@@ -290,11 +294,13 @@ function App() {
                    <p className='text-l pl-2 pt-5'>Augue interdum velit euismod in pellentesque massa placerat duis ultricies. Purus gravida quis blandit turpis. Dolor sit amet consectetur adipiscing elit.</p>
                   </div>
                
-                </div>
+                </motion.div>
                
               </div>
               <div className=''>
-                <div className="mt-10 pt-5 flex">
+                <motion.div
+                initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.4 }} viewport={{ once: true }}
+                className="mt-10 pt-5 flex">
                   <div className='flex'>
                    <motion.img src={icons.money} alt="" className='w-[120px] h-[60px] bg-blue-200 rounded-full  hover:bg-blue-500 hover:scale-110 hover: transition-all duration-300'/>
                   </div>
@@ -303,11 +309,13 @@ function App() {
                     <p className='text-l pl-2 pt-5'>Quis vel eros donec ac odio tempor. Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit.Suspendisse interdum consectetur.</p>
                   </div>
                
-                </div>
+                </motion.div>
                
               </div>
               <div className=''>
-                <div className="mt-10 pt-5 flex ">
+                <motion.div
+                initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1,  }} viewport={{ once: true }}
+                className="mt-10 pt-5 flex ">
                   <div className='flex'>
                    <img src={icons.service} alt="" className='w-[120px] h-[60px] bg-blue-200 rounded-full  hover:bg-blue-500 hover:scale-110 hover: transition-all duration-300'/>
                   </div>
@@ -316,11 +324,13 @@ function App() {
                     <p className='text-l pl-2 pt-5'>Pellentesque id nibh tortor id. Quis vel eros donec ac odio tempor orci. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam.</p>
                   </div>
                
-                </div>
+                </motion.div>
                
               </div>
 
-             <div className="flex pt-20">
+             <motion.div
+             initial={{ opacity: 0, translateZ: 50 }} whileInView={{ opacity: 1, translateZ: 0 }} transition={{ duration: 1,  }} viewport={{ once: true }}
+             className="flex pt-20">
               <button className='border rounded-full bg-red-950 w-[122px] h-[50px] text-white text-xl'>Read More</button>
               <div className="pl-[50px] flex">
                 <div>
@@ -331,7 +341,7 @@ function App() {
                     <p>7228833817</p>
                   </div>
               </div>
-             </div>
+             </motion.div>
             </motion.div>
           </div>
         </div>
@@ -346,12 +356,18 @@ function App() {
       <div className="pt-[100px] bg-blue-100 pb-[100px]"> 
 
         <div className="text-center">
-          <h1 className="font-semibold text-3xl">Our service</h1>
-          <h1 className="font-bold text-5xl mt-5">Complete Solution Under One Roof</h1>
+          <motion.h1 
+          initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1,  }} viewport={{ once: true }}
+          className="font-semibold text-3xl">Our service</motion.h1>
+          <motion.h1
+          initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }} viewport={{ once: true }}
+          className="font-bold text-5xl mt-5">Complete Solution Under One Roof</motion.h1>
         </div>
         <div className='pt-10'>
           <div className=" grid grid-cols-4 gap-10 place-items-center pl-20">
-            <div className="group">
+            <motion.div 
+            initial={{ opacity: 0,  translateZ:-50 }} whileInView={{ opacity: 1, translateZ: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}
+            className="group">
               <div className={`group ${serviceStyle} group-hover:bg-[url('https://wdtthemes.kinsta.cloud/mezan/wp-content/uploads/sites/4/2024/03/General-Plumbing.jpg')] bg-contain bg-center`}>  
                 <div className={serviceHover}>
               <FontAwesomeIcon
@@ -364,9 +380,11 @@ function App() {
               <div className="font-bold pl-[65px] pt-4 hover:text-blue-500">
                 <p>General Plumbing</p>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="group">
+            <motion.div
+            initial={{ opacity: 0,  translateZ:-50 }} whileInView={{ opacity: 1, translateZ: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}
+            className="group">
               <div className={`group ${serviceStyle} group-hover:bg-[url('https://wdtthemes.kinsta.cloud/mezan/wp-content/uploads/sites/4/2024/03/Electrical-Works.jpg')] bg-contain bg-center `}>  
                 <div className={serviceHover}>
               <FontAwesomeIcon
@@ -379,9 +397,11 @@ function App() {
               <div className="font-bold pl-[80px] pt-4 hover:text-blue-500">
                 <p>Electrical Works</p>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="group">
+            <motion.div 
+            initial={{ opacity: 0,  translateZ:-50 }} whileInView={{ opacity: 1, translateZ: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}
+            className="group">
               <div className={`group ${serviceStyle} group-hover:bg-[url('https://wdtthemes.kinsta.cloud/mezan/wp-content/uploads/sites/4/2024/02/service-bg-imgbox.jpg')] bg-contain bg-center `}>  
                 <div className={serviceHover}>
               <FontAwesomeIcon
@@ -394,8 +414,10 @@ function App() {
               <div className="font-bold pl-[75px] pt-4 hover:text-blue-500">
                 <p>Carpentry Works</p>
               </div>
-            </div>
-            <div className="group">
+            </motion.div>
+            <motion.div
+            initial={{ opacity: 0,  translateZ:-50 }} whileInView={{ opacity: 1, translateZ: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}
+            className="group">
               <div className={`group ${serviceStyle} group-hover:bg-[url('https://wdtthemes.kinsta.cloud/mezan/wp-content/uploads/sites/4/2024/03/Bathroom-Plumbing.jpg')] bg-contain bg-center `}>  
                 <div className={serviceHover}>
               <FontAwesomeIcon
@@ -408,8 +430,10 @@ function App() {
               <div className="font-bold pl-[65px] pt-4 hover:text-blue-500">
                 <p>Bathroom Plumbing</p>
               </div>
-            </div>
-            <div className="group">
+            </motion.div>
+            <motion.div
+            initial={{ opacity: 0,  translateZ:-50 }} whileInView={{ opacity: 1, translateZ: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}
+            className="group">
               <div className={`group ${serviceStyle} group-hover:bg-[url('https://wdtthemes.kinsta.cloud/mezan/wp-content/uploads/sites/4/2024/03/Water-Filtration.jpg')] bg-contain bg-center `}>  
                 <div className={serviceHover}>
               <FontAwesomeIcon
@@ -422,8 +446,10 @@ function App() {
               <div className="font-bold pl-[90px] pt-4 hover:text-blue-500">
                 <p>Gas Service</p>
               </div>
-            </div>
-            <div className="group">
+            </motion.div>
+            <motion.div 
+            initial={{ opacity: 0,  translateZ:-50 }} whileInView={{ opacity: 1, translateZ: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}
+            className="group">
               <div className={`group ${serviceStyle} group-hover:bg-[url('https://wdtthemes.kinsta.cloud/mezan/wp-content/uploads/sites/4/2024/03/Door-Windows-1.jpg')] bg-contain bg-center `}>  
                 <div className={serviceHover}>
               <FontAwesomeIcon
@@ -436,8 +462,10 @@ function App() {
               <div className="font-bold pl-[95px] pt-4 hover:text-blue-500">
                 <p>Door Fitting</p>
               </div>
-            </div>
-            <div className="group">
+            </motion.div>
+            <motion.div
+            initial={{ opacity: 0,  translateZ:-50 }} whileInView={{ opacity: 1, translateZ: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}
+             className="group">
               <div className={`group ${serviceStyle} group-hover:bg-[url('https://wdtthemes.kinsta.cloud/mezan/wp-content/uploads/sites/4/2024/03/Home-Repairs.jpg')] bg-contain bg-center `}>  
                 <div className={serviceHover}>
               <FontAwesomeIcon
@@ -450,8 +478,10 @@ function App() {
               <div className="font-bold pl-[85px] pt-4 hover:text-blue-500">
                 <p>Home Repairs</p>
               </div>
-            </div>
-            <div className="group">
+            </motion.div>
+            <motion.div 
+            initial={{ opacity: 0,  translateZ:-50 }} whileInView={{ opacity: 1, translateZ: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}
+            className="group">
               <div className={`group ${serviceStyle} group-hover:bg-[url('https://wdtthemes.kinsta.cloud/mezan/wp-content/uploads/sites/4/2024/03/Painting-Services.jpg')] bg-contain bg-center `}>  
                 <div className={serviceHover}>
               <FontAwesomeIcon
@@ -464,12 +494,14 @@ function App() {
               <div className="font-bold pl-[75px] pt-4 hover:text-blue-500">
                 <p>Painting Services</p>
               </div>
-            </div>          
+            </motion.div>          
             
           </div>
         </div>
         <div className="flex pt-[70px] justify-center gap-7 pl-20">
-          <button className="border rounded-full bg-yellow-300  w-[122px] h-[50px] text-black text-xl hover:bg-black transition duration-300 hover:text-white ">Get a Queat</button>
+          <motion.button 
+           initial={{ opacity: 0,  translateZ:-50 }} whileInView={{ opacity: 1, translateZ: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}
+          className="border rounded-full bg-yellow-300  w-[122px] h-[50px] text-black text-xl hover:bg-black transition duration-300 hover:text-white ">Get a Queat</motion.button>
           <button className="border rounded-full bg-blue-500 w-[202px] h-[50px] text-white text-xl  hover:bg-yellow-300 transition duration-300 hover:text-black ">Browse all service</button>
         </div>
       </div>
@@ -478,36 +510,43 @@ function App() {
 
       
     {/* customer review card */}
-    <div className="">
-      <section className="bg-gray-100 relative h-screen w-screen  ">
-      <div className="max-w-5xl mx-auto bg-blue-100 w-screen h-auto rounded-lg shadow-lg flex flex-col md:flex-row items-center">
+    <div className="w-screen h-screen">
+      <section className="bg-white relative h-screen w-screen  pt-10">
+      <div className=" mx-auto  p-10 h-auto rounded-lg shadow-lg flex flex-col md:flex-row items-center">
         {/* Left Side - Illustration */}
         <div className="w-full md:w-1/3">
           <img
-           src="https://wdtthemes.kinsta.cloud/mezan/wp-content/uploads/sites/4/2024/02/testimonial-type2.png"  width="600" height="953" 
+          className='w-[500px]'
+           src="https://wdtthemes.kinsta.cloud/mezan/wp-content/uploads/sites/4/2024/02/testimonial-type2.png"   
             alt="Illustration"
           />
         </div>
 
         {/* Right Side - Testimonial Content */}
-        <div className="w-full md:w-2/3 p-4">
-          <h3 className="text-gray-500 uppercase text-sm font-bold">Client Says</h3>
-          <h2 className="text-2xl font-semibold">Happy Customers</h2>
-          <div className="flex mt-2">
+        <div className=" bg-gray-100 rounded-[50px] w-[70%] h-[800px] p-4 ">
+        <h3 className="text-gray-500 uppercase text-sm font-bold">Client Says</h3>
+          <div className='flex' >
+          
+          <h2 className=" font-semibold text-5xl mr-10">Happy Customers</h2>
+          <div className='pl-[70px] mt-4 border-l-4 border-yellow-500'>Sem viverra aliquet eget sit amet tellus cras. Scelerisque felis imperdiet proin fermentum leo vel orci.Tortor at auctor urna nunc id. Sit amet facilisis magna etiam odio mollis.</div>
+          
+          </div>
+          <div className="flex pt-8">
             {Array(reviews[activeReview].rating).fill().map((_, i) => (
               <span key={i} className="text-yellow-500 text-lg">★</span>
             ))}
           </div>
+          
 
           {/* Profile Section */}
-          <p className="mt-2 text-gray-600 ">{reviews[activeReview].text}</p>
+          <p className="pt-7 text-gray-600 ">{reviews[activeReview].text} Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum voluptatem nihil beatae perspiciatis repellendus dolor quidem magnam, inventore modi totam voluptate, minima quaerat alias culpa fuga laudantium nemo tempore quas dicta accusamus illo id repellat. Itaque, deleniti? Consectetur alias velit dignissimos voluptatibus perspiciatis sapiente? Molestiae, repellendus similique corporis magni, libero quia quidem, quasi laboriosam repudiandae possimus sint laudantium sit fuga voluptas provident cupiditate? Illo omnis maiores vero voluptatum eveniet ullam, nihil fugiat praesentium obcaecati neque perspiciatis qui consectetur optio asperiores, atque commodi enim, tenetur illum! Autem, numquam repellat ducimus iste facere pariatur illum assumenda dignissimos consequuntur. Quibusdam quos nisi doloremque!</p>
           <div className="mt-4 flex items-center space-x-3">
             <img
               src={reviews[activeReview].image}
               alt={reviews[activeReview].name}
               className="w-10 h-10 rounded-full"
             />
-            <div>
+            <div className='pt-7'>
               <h4 className="font-semibold">{reviews[activeReview].name}</h4>
               <p className="text-gray-500 text-sm font-bold">{reviews[activeReview].role}</p>
             </div>
@@ -516,7 +555,7 @@ function App() {
         
           
           {/* previous review button and next review button */}
-          <div className="mt-6 flex space-x-4">
+          <div className="mt-6 flex space-x-4 pt-7">
         {reviews.map((_, index) => (
           <button
             key={index}
