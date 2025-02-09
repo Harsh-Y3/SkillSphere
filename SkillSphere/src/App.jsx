@@ -11,6 +11,32 @@ function App() {
   const [count, setCount] = useState(0)
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const [activeReview, setActiveReview] = useState(0);
+
+  const reviews = [
+    {
+      name: "Consolata Daria",
+      role: "Entrepreneur",
+      text: "Until the Ligula Volutpat Nor the Fringe. Everyone's life is ugly. There are no members of my Convallis, Who is always ahead of Lacinia Amet.",
+      rating: 5,
+      image: "https://randomuser.me/api/portraits/women/44.jpg",
+    },
+    {
+      name: "John Doe",
+      role: "Businessman",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ac magna ut dolor cursus fermentum.",
+      rating: 4,
+      image: "https://randomuser.me/api/portraits/men/45.jpg",
+    },
+    {
+      name: "Jane Smith",
+      role: "Designer",
+      text: "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.",
+      rating: 5,
+      image: "https://randomuser.me/api/portraits/women/46.jpg",
+    },
+  ];
+
   const data = [
     {
       icon: icons.money,
@@ -377,14 +403,73 @@ function App() {
           <button></button>
         </div>
 
-
-
-
-
       </div>
 
+
+
+
+
       
-    </div>
+      {/* customer review card */}
+    <div className="">
+      <section className="bg-gray-100 relative h-screen w-full py-16 px-6 md:px-12 lg:px-24">
+      <div className="max-w-5xl mx-auto bg-blue-100 w-full h-full p-10 rounded-lg shadow-lg flex flex-col md:flex-row items-center">
+        {/* Left Side - Illustration */}
+        <div className="w-full md:w-1/3">
+          <img
+           src="https://wdtthemes.kinsta.cloud/mezan/wp-content/uploads/sites/4/2024/02/testimonial-type2.png"  width="600" height="953" 
+            alt="Illustration"
+          />
+        </div>
+
+        {/* Right Side - Testimonial Content */}
+        <div className="w-full md:w-2/3 p-4">
+          <h3 className="text-gray-500 uppercase text-sm font-bold">Client Says</h3>
+          <h2 className="text-2xl font-semibold">Happy Customers</h2>
+          <div className="flex mt-2">
+            {Array(reviews[activeReview].rating).fill().map((_, i) => (
+              <span key={i} className="text-yellow-500 text-lg">★</span>
+            ))}
+          </div>
+
+          {/* Profile Section */}
+          <p className="mt-2 text-gray-600 ">{reviews[activeReview].text}</p>
+          <div className="mt-4 flex items-center space-x-3">
+            <img
+              src={reviews[activeReview].image}
+              alt={reviews[activeReview].name}
+              className="w-10 h-10 rounded-full"
+            />
+            <div>
+              <h4 className="font-semibold">{reviews[activeReview].name}</h4>
+              <p className="text-gray-500 text-sm font-bold">{reviews[activeReview].role}</p>
+            </div>
+          </div>
+        
+        
+          
+          {/* previous review button and next review button */}
+          <div className="mt-6 flex space-x-4">
+        {reviews.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setActiveReview(index)}
+            className={`px-4 py-2 rounded-lg transition-colors duration-300 ${
+              activeReview === index ? "bg-yellow-300 text-black" : "bg-gray-300 text-gray-700"
+            }`}
+          >
+            Review {index + 1}
+          </button>
+        ))}
+      </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</div>
+     
+    
   )
 }
 
