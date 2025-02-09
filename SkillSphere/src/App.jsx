@@ -5,6 +5,7 @@ import {delay, motion} from 'framer-motion'
 import icons from './assets/assets'
 import background from './assets/background-vid-skillsphere.mp4'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { image } from 'framer-motion/client'
 
 
 function App() {
@@ -55,9 +56,11 @@ function App() {
     setCurrentIndex(index);
   };
 
-  const serviceStyle = "flex justify-center items-center <pt-13></pt-13> group p-4 w-[250px] h-[230px]  bg-white rounded-lg shadow-md  hover:bg-blue-500 hover:shadow-lg transition-shadow duration-300 ";
+  const serviceStyle = "flex justify-center items-center group  w-[270px] h-[250px]  bg-white rounded-3xl shadow-md  hover:bg-blue-500 hover:shadow-lg transition-shadow duration-300 ";
  
-  const serviceContentStyle = "text-blue-500 text-7xl transition-transform duration-300 group-hover:scale-125 group-hover:text-white";
+  const serviceContentStyle = "text-blue-500 text-7xl pt-4 transition-transform duration-300 group-hover:scale-125 group-hover:text-white";
+
+  const serviceHover = "flex justify-center items-center rounded-3xl group-hover:bg-blue-500 group-hover:bg-opacity-50  h-[250px] w-[270px]"
   return (
     <div className=''> 
       {/* hereo uncle, header */}
@@ -313,70 +316,137 @@ function App() {
 
       {/* Our service start */}
       {/* our service main div */}
-      <div className="pt-[100px] bg-blue-100"> 
+      <div className="pt-[100px] bg-blue-100 pb-[100px]"> 
 
         <div className="text-center">
           <h1 className="font-semibold text-3xl">Our service</h1>
           <h1 className="font-bold text-5xl mt-5">Complete Solution Under One Roof</h1>
         </div>
         <div className='pt-10'>
-          <div className=" grid grid-cols-4 gap-10 ml-20">
-            <div className={serviceStyle}>  
-            <FontAwesomeIcon
-            icon={icons.tool}
-            className={serviceContentStyle}
-            />
+          <div className=" grid grid-cols-4 gap-10 pl-20">
+            <div className="group">
+              <div className={`group ${serviceStyle} group-hover:bg-[url('https://wdtthemes.kinsta.cloud/mezan/wp-content/uploads/sites/4/2024/03/General-Plumbing.jpg')] bg-contain bg-center`}>  
+                <div className={serviceHover}>
+              <FontAwesomeIcon
+              icon={icons.tool}
+              className={serviceContentStyle}
+              />
+              </div>
+              
+              </div>
+              <div className="font-bold pl-[65px] pt-4 hover:text-blue-500">
+                <p>General Plumbing</p>
+              </div>
             </div>
-          
-            <div className={serviceStyle}>  
-            <FontAwesomeIcon
-            icon={icons.plug}
-            className={serviceContentStyle}
-            />
+
+            <div className="group">
+              <div className={`group ${serviceStyle} group-hover:bg-[url('https://wdtthemes.kinsta.cloud/mezan/wp-content/uploads/sites/4/2024/03/Electrical-Works.jpg')] bg-contain bg-center `}>  
+                <div className={serviceHover}>
+              <FontAwesomeIcon
+              icon={icons.plug}
+              className={serviceContentStyle}
+              />
+              </div>
+
+              </div>
+              <div className="font-bold pl-[80px] pt-4 hover:text-blue-500">
+                <p>Electrical Works</p>
+              </div>
             </div>
-            <div className={serviceStyle}>  
-            <FontAwesomeIcon
-            icon={icons.hammer}
-            className={serviceContentStyle}
-            />
+
+            <div className="group">
+              <div className={`group ${serviceStyle} group-hover:bg-[url('https://wdtthemes.kinsta.cloud/mezan/wp-content/uploads/sites/4/2024/02/service-bg-imgbox.jpg')] bg-contain bg-center `}>  
+                <div className={serviceHover}>
+              <FontAwesomeIcon
+              icon={icons.hammer}
+              className={serviceContentStyle}
+              />
+              </div>
+
+              </div>
+              <div className="font-bold pl-[75px] pt-4 hover:text-blue-500">
+                <p>Carpentry Works</p>
+              </div>
             </div>
-            <div className={serviceStyle}>  
-            <FontAwesomeIcon
-            icon={icons.shower}
-            className={serviceContentStyle}
-            />
+            <div className="group">
+              <div className={`group ${serviceStyle} group-hover:bg-[url('https://wdtthemes.kinsta.cloud/mezan/wp-content/uploads/sites/4/2024/03/Bathroom-Plumbing.jpg')] bg-contain bg-center `}>  
+                <div className={serviceHover}>
+              <FontAwesomeIcon
+              icon={icons.shower}
+              className={serviceContentStyle}
+              />
+              </div>
+
+              </div>
+              <div className="font-bold pl-[65px] pt-4 hover:text-blue-500">
+                <p>Bathroom Plumbing</p>
+              </div>
             </div>
-            <div className={serviceStyle}>  
-            <FontAwesomeIcon
-            icon={icons.burner}
-            className={serviceContentStyle}
-            />
+            <div className="group">
+              <div className={`group ${serviceStyle} group-hover:bg-[url('https://wdtthemes.kinsta.cloud/mezan/wp-content/uploads/sites/4/2024/03/Water-Filtration.jpg')] bg-contain bg-center `}>  
+                <div className={serviceHover}>
+              <FontAwesomeIcon
+              icon={icons.burner}
+              className={serviceContentStyle}
+              />
+              </div>
+
+              </div>
+              <div className="font-bold pl-[90px] pt-4 hover:text-blue-500">
+                <p>Gas Service</p>
+              </div>
             </div>
-            <div className={serviceStyle}>  
-            <FontAwesomeIcon
-            icon={icons.door}
-            className={serviceContentStyle}
-            />
+            <div className="group">
+              <div className={`group ${serviceStyle} group-hover:bg-[url('https://wdtthemes.kinsta.cloud/mezan/wp-content/uploads/sites/4/2024/03/Door-Windows-1.jpg')] bg-contain bg-center `}>  
+                <div className={serviceHover}>
+              <FontAwesomeIcon
+              icon={icons.door}
+              className={serviceContentStyle}
+              />
+              </div>
+
+              </div>
+              <div className="font-bold pl-[95px] pt-4 hover:text-blue-500">
+                <p>Door Fitting</p>
+              </div>
             </div>
-            <div className={serviceStyle}>  
-            <FontAwesomeIcon
-            icon={icons.house}
-            className={serviceContentStyle}
-            />
+            <div className="group">
+              <div className={`group ${serviceStyle} group-hover:bg-[url('https://wdtthemes.kinsta.cloud/mezan/wp-content/uploads/sites/4/2024/03/Home-Repairs.jpg')] bg-contain bg-center `}>  
+                <div className={serviceHover}>
+              <FontAwesomeIcon
+              icon={icons.house}
+              className={serviceContentStyle}
+              />
+              </div>
+
+              </div>
+              <div className="font-bold pl-[85px] pt-4 hover:text-blue-500">
+                <p>Home Repairs</p>
+              </div>
             </div>
-            <div className={serviceStyle}>  
-            <FontAwesomeIcon
-            icon={icons.paint}
-            className={serviceContentStyle}
-            />
-            </div>           
+            <div className="group">
+              <div className={`group ${serviceStyle} group-hover:bg-[url('https://wdtthemes.kinsta.cloud/mezan/wp-content/uploads/sites/4/2024/03/Painting-Services.jpg')] bg-contain bg-center `}>  
+                <div className={serviceHover}>
+              <FontAwesomeIcon
+              icon={icons.paint}
+              className={serviceContentStyle}
+              />
+              </div>
+
+              </div>
+              <div className="font-bold pl-[75px] pt-4 hover:text-blue-500">
+                <p>Painting Services</p>
+              </div>
+            </div>          
+            
           </div>
         </div>
-        <div className="flex">
-          <button></button>
-          <button></button>
+        <div className="flex pt-[70px] justify-center gap-7 pl-20">
+          <button className="border rounded-full bg-yellow-300  w-[122px] h-[50px] text-black text-xl hover:bg-black transition duration-300 hover:text-white ">Get a Queat</button>
+          <button className="border rounded-full bg-blue-500 w-[202px] h-[50px] text-white text-xl  hover:bg-yellow-300 transition duration-300 hover:text-black ">Browse all service</button>
         </div>
 
+          
 
 
 
