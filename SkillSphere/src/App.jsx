@@ -350,7 +350,7 @@ function App() {
           <h1 className="font-bold text-5xl mt-5">Complete Solution Under One Roof</h1>
         </div>
         <div className='pt-10'>
-          <div className=" grid grid-cols-4 gap-10 pl-20">
+          <div className=" grid grid-cols-4 gap-10 place-items-center pl-20">
             <div className="group">
               <div className={`group ${serviceStyle} group-hover:bg-[url('https://wdtthemes.kinsta.cloud/mezan/wp-content/uploads/sites/4/2024/03/General-Plumbing.jpg')] bg-contain bg-center`}>  
                 <div className={serviceHover}>
@@ -479,8 +479,8 @@ function App() {
       
     {/* customer review card */}
     <div className="">
-      <section className="bg-gray-100 relative h-screen w-full py-16 px-6 md:px-12 lg:px-24">
-      <div className="max-w-5xl mx-auto bg-blue-100 w-full h-full p-10 rounded-lg shadow-lg flex flex-col md:flex-row items-center">
+      <section className="bg-gray-100 relative h-screen w-screen  ">
+      <div className="max-w-5xl mx-auto bg-blue-100 w-screen h-auto rounded-lg shadow-lg flex flex-col md:flex-row items-center">
         {/* Left Side - Illustration */}
         <div className="w-full md:w-1/3">
           <img
