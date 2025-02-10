@@ -506,7 +506,58 @@ function App() {
         </div>
       </div>
 
+      {/* contact form */}
+      <div className=''>
+        <section className='bg-white pt-10 flex justify-center  '>
+          <div className=' bg-white  w-[1280px] h-[735px]'>
+            {/* left content */}
+            <div className='w-[880px] h-[386px]'>
+            <div className="">
+              <p className='text-lg '>For Free Estimate!</p>
+              <h1 className='text-6xl font-bold'>Request A Quote</h1>
+            </div>
 
+           
+
+           {/* form */}
+          <div>
+          <form className='grid grid-cols-3 gap-10  pt-10'>
+              
+                <input
+                className={` bg-blue-100 h-10 border-black rounded-xl p-4 `}
+                type="text" placeholder='Name'/>
+                <input
+                className={` bg-blue-100 h-10 border-black rounded-xl p-4 `}
+                type="email"
+                placeholder='email'
+                required
+                />
+
+                <input 
+                className={` bg-blue-100 h-10 border-black rounded-xl p-4 `}
+                type="number" placeholder='Mobile Number'/>
+                <input 
+                className={` bg-blue-100 h-10 border-black rounded-xl p-4 `}
+                type="text" placeholder='Select service'/>
+                <input 
+                className={` bg-blue-100 h-10 border-black rounded-xl p-4 `}
+                type="datetime-local" />
+                <input 
+                type="submit"
+                placeholder='get qu'
+                className='bg-yellow-400 rounded-2xl'
+                /> 
+                <textarea 
+                className={` bg-blue-100  rounded-xl pl-4 pt-4 pr-2 pb-3 col-span-2 h-24 `}
+                type="text" placeholder='Description' rows='4' />
+             
+            </form>
+            </div>
+           </div>
+            </div>
+
+        </section>
+      </div>
 
       
     {/* customer review card */}
@@ -569,6 +620,14 @@ function App() {
         ))}
       </div>
         </div>
+        
+
+
+
+
+
+              
+  {/* main div */}
       </div>
 
     </section>
