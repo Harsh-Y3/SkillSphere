@@ -88,7 +88,7 @@ function App() {
 
   const serviceHover = "flex justify-center items-center rounded-3xl group-hover:bg-blue-500 group-hover:bg-opacity-50  h-[250px] w-[270px]"
   return (
-    <div className=' overflow-hidden z-20'> 
+    <div className=' overflow-hidden z-20 '> 
       {/* hereo uncle, header */}
         <div className='relative h-screen w-full text-white'>
         <div className="absolute inset-0">
@@ -284,7 +284,7 @@ function App() {
               
               <div className=''>
                 <motion.div 
-                initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.2 }} viewport={{ once: true }}
+                initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.3 }} viewport={{ once: true }}
                 className="mt-10 pt-5 flex">
                   <div className='flex'>
                    <img src={icons.docs} alt="" className='w-[120px] h-[60px]   bg-blue-200 rounded-full  hover:bg-blue-500 hover:scale-110 hover: transition-all duration-300'/>
@@ -299,7 +299,7 @@ function App() {
               </div>
               <div className=''>
                 <motion.div
-                initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.4 }} viewport={{ once: true }}
+                initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.5 }} viewport={{ once: true }}
                 className="mt-10 pt-5 flex">
                   <div className='flex'>
                    <motion.img src={icons.money} alt="" className='w-[120px] h-[60px] bg-blue-200 rounded-full  hover:bg-blue-500 hover:scale-110 hover: transition-all duration-300'/>
@@ -314,7 +314,7 @@ function App() {
               </div>
               <div className=''>
                 <motion.div
-                initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1,  }} viewport={{ once: true }}
+                initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.6 }} viewport={{ once: true }}
                 className="mt-10 pt-5 flex ">
                   <div className='flex'>
                    <img src={icons.service} alt="" className='w-[120px] h-[60px] bg-blue-200 rounded-full  hover:bg-blue-500 hover:scale-110 hover: transition-all duration-300'/>
@@ -509,54 +509,148 @@ function App() {
       {/* contact form */}
       <div className=''>
         <section className='bg-white pt-10 flex justify-center  '>
-          <div className=' bg-white  w-[1280px] h-[735px]'>
+          <div className='flex'>
+          <div className=' bg-white  w-[1280px] h-[735px] flex flex-row'>
             {/* left content */}
             <div className='w-[880px] h-[386px]'>
             <div className="">
-              <p className='text-lg '>For Free Estimate!</p>
-              <h1 className='text-6xl font-bold'>Request A Quote</h1>
+              <motion.p 
+              initial={{ opacity: 0,  x:-50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}
+              className='text-lg '>For Free Estimate!</motion.p>
+              <motion.h1 
+              initial={{ opacity: 0,  x:-50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1, delay: 0.3 }} viewport={{ once: true }}
+              className='text-6xl font-bold'>Request A Quote</motion.h1>
             </div>
 
            
 
            {/* form */}
           <div>
-          <form className='grid grid-cols-3 gap-10  pt-10'>
+          <motion.form 
+          
+          initial={{ opacity: 0,  translateZ:50 }} whileInView={{ opacity: 1, translateZ: 0 }} transition={{ duration: 1.5 }} viewport={{ once: true }}className='grid grid-cols-3 gap-10  pt-10'>
               
                 <input
-                className={` bg-blue-100 h-10 border-black rounded-xl p-4 `}
-                type="text" placeholder='Name'/>
+              
+                className={`appearance-none border-2 bg-blue-100 h-10 border-red-50 rounded-xl p-4 invalid:border-red-500   valid:border-green-400`}
+                type="text"
+                placeholder='Name'
+                minLength={3}
+                required
+                />
+                
                 <input
-                className={` bg-blue-100 h-10 border-black rounded-xl p-4 `}
+                className={` appearance-none border-2 bg-blue-100 h-10 border-red-50 rounded-xl p-4 invalid:border-red-500   valid:border-green-400 `}
                 type="email"
                 placeholder='email'
                 required
-                />
+
+                /> 
 
                 <input 
-                className={` bg-blue-100 h-10 border-black rounded-xl p-4 `}
-                type="number" placeholder='Mobile Number'/>
+                className={` appearance-none border-2 bg-blue-100 h-10 border-red-50 rounded-xl p-4 invalid:border-red-500   valid:border-green-400 `}
+                type="number"
+                placeholder='Mobile Number'
+                minLength="10"
+                max="10"
+                
+                required/>
                 <input 
-                className={` bg-blue-100 h-10 border-black rounded-xl p-4 `}
-                type="text" placeholder='Select service'/>
+                className={` appearance-none border-2 bg-blue-100 h-10 border-red-50 rounded-xl p-4 invalid:border-red-500   valid:border-green-400 `}
+                type="text" 
+                placeholder='Select service'
+                required
+                />
                 <input 
-                className={` bg-blue-100 h-10 border-black rounded-xl p-4 `}
-                type="datetime-local" />
-                <input 
+                className={` appearance-none border-2 bg-blue-100 h-10 border-red-50 rounded-xl p-4 invalid:border-red-500   valid:border-green-400 `}
+                type="datetime-local"
+                required
+                />
+                <button
                 type="submit"
                 placeholder='get qu'
-                className='bg-yellow-400 rounded-2xl'
-                /> 
+                className='bg-yellow-400 rounded-2xl '
+                >Get A Quote </button> 
                 <textarea 
-                className={` bg-blue-100  rounded-xl pl-4 pt-4 pr-2 pb-3 col-span-2 h-24 `}
-                type="text" placeholder='Description' rows='4' />
+                className={` appearance-none bg-blue-100  rounded-xl pl-4 pt-4 pr-2 pb-3 col-span-2 h-24  invalid:border-red-500   valid:border-green-400 `}
+                type="text" 
+                placeholder='Description' 
+                minLength="20"
+                rows='4'
+                required
+                />
              
-            </form>
+            </motion.form>
             </div>
+            <motion.div 
+            initial={{ opacity: 0,  y:50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}
+            
+            className="mt-[60px] bg-gray-100 w-[1000px] h-[256px] flex flex-row rounded-[30px]  ">
+              <div className="flex flex-col  items-center bg-yellow-400 rounded-[30px] w-72  ">
+                <p className='text-xl pt-3 font-semibold'>People Trust</p>
+                <h1 className='text-3xl pt-4 font-bold'>Why We 
+                  <br />
+                  Are Best</h1>
+                <p className='pt-5 p-4'>Curabitur vitae nunc sed velit dignissim sodales ut eu. Leo vel orci porta non.
+                </p>
+              </div>
+              <div className="w-[270px] flex flex-col items-center pl-5">
+                <div>
+                  <img src={icons.license}
+                  className='h-[63px]] w-[68px] pt-4'
+                  alt="" />
+                </div>                
+                <div className="pt-4">
+                <h1 className='text-2xl pt-4 font-bold pl-1'>Licensed Technician</h1>
+                <p className='pl-2'>Mauris augue neque gravida in fermentum et sollicitudin.</p>
+                </div>
+                
+              </div>
+              <div className="w-[270px] flex flex-col items-center pl-5">
+                <div>
+                  <img src={icons.star}
+                  className='h-[63px]] w-[68px] pt-4'
+                  alt="" />
+                </div>                
+                <div className="pt-4">
+                <h1 className='text-2xl pt-4 font-bold'>Top Rated Service</h1>
+                <p>Mauris augue neque gravida in fermentum et sollicitudin.</p>
+                </div>
+                
+              </div>
+              <div className="w-[270px]  flex flex-col items-center pl-5">
+                <div >
+                  <img src={icons.support}
+                  className='h-[63px]] w-[68px] pt-4'
+                  alt="" />
+                </div>                
+                <div className="pt-4">
+                <h1 className='text-2xl pt-4 font-bold'>Timely Services</h1>
+                <p>Mauris augue neque gravida in fermentum et sollicitudin.</p>
+                </div>
+                
+              </div>
+              
+            </motion.div>
            </div>
+           <motion.div 
+           initial={{ opacity: 0,  y:50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}
+           className="">
+            <img 
+            className='h-[700px] w-[400px]'
+            src="https://wdtthemes.kinsta.cloud/mezan/wp-content/uploads/sites/4/2024/04/req-img.png" alt="" />
+           </motion.div>
+           
             </div>
-
+            
+            
+        </div>
+        
         </section>
+        
+       
+        
+        
       </div>
 
       
