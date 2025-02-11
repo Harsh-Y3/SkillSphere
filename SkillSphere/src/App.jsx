@@ -87,8 +87,35 @@ function App() {
   const serviceContentStyle = "text-blue-500 text-7xl pt-4 transition-transform duration-300 group-hover:scale-125 group-hover:text-white";
 
   const serviceHover = "flex justify-center items-center rounded-3xl group-hover:bg-blue-500 group-hover:bg-opacity-50  h-[250px] w-[270px]"
+
+  // our service slider
+  
+  const [dividerPosition, setDividerPosition] = useState(50); // Initial position at 50%
+  const [isDragging, setIsDragging] = useState(false);
+
+  const handleMouseDown = () => {
+    setIsDragging(true); // Start dragging
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false); // Stop dragging
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return; // Only update position if dragging
+
+    const container = e.currentTarget.getBoundingClientRect();
+    const newDividerPosition = ((e.clientX - container.left) / container.width) * 100;
+
+    // Clamp the position between 0% and 100%
+    if (newDividerPosition >= 0 && newDividerPosition <= 100) {
+      setDividerPosition(newDividerPosition);
+    }
+  };
+
+    
   return (
-    <div className=' overflow-hidden z-20 '> 
+    <div className=' overflow-hidden z-20 m-0 p-0 '> 
       {/* hereo uncle, header */}
         <div className='relative h-screen w-full text-white'>
         <div className="absolute inset-0">
@@ -653,7 +680,42 @@ function App() {
         
       </div>
 
-      
+      {/* our work section */}
+
+      <div>
+        <section className=' bg-black'>
+          <div className='flex flex-row mx-40 p-10'>
+            <div className='w-[587px] h-[163px]'>
+              <h1 className='text-yellow-400 font-semibold'>Friendly Services</h1>
+              <h1 className='text-5xl text-white font-bold'>safe and secure Plumbing, Electrical and Carpenter  Work</h1>
+            </div>
+            <div className='w-[368px] ml-20 border-l-2'>
+                <p className='text-white pl-10'>Egestas erat imperdiet sed euismod nisi porta lorem mollis. Nunc scelerisque viverra mauris in aliquam. Morbi non arcu risus quis.Libero enim sed faucibus turpis in eu mi. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium nibh.</p>
+            </div>
+          </div>
+          <div className='flex flex-row justify-around w-[1020px] mx-[200px] gap-20 text-white '>
+            <div className=''>
+              <h1 className='text-yellow-400 text-6xl font-extrabold'>980+</h1>
+              <p>Successful Services</p>
+            </div>
+            <div>
+            <h1 className='text-yellow-400 text-6xl font-extrabold'>900+</h1>
+            <p>Satisfied Clients</p>
+            </div>
+            <div>
+            <h1 className='text-yellow-400 text-6xl font-extrabold'>450+</h1>
+            <p>Professionals</p>
+            </div>
+            <div>
+            <h1 className='text-yellow-400 text-6xl font-extrabold'>220+</h1>
+            <p>Global Stores</p>
+            </div>
+          </div>
+
+        </section>
+      </div>
+
+
     {/* customer review card */}
     <div className="w-screen h-screen">
       <section className="bg-white relative h-screen w-screen  pt-10">
@@ -721,11 +783,46 @@ function App() {
 
 
               
-  {/* main div */}
+
       </div>
 
     </section>
   </div>
+
+ <div
+      className="relative flex w-full h-screen overflow-hidden"
+      onMouseMove={handleMouseMove} // Update position only during dragging
+      onMouseUp={handleMouseUp} // Stop dragging on mouse release
+      onMouseLeave={handleMouseUp} // Stop dragging if the mouse leaves the container
+    >
+      {/* Left Section */}
+      <div
+        className="h-full bg-gray-300"
+        style={{ width: `${dividerPosition}%` }}
+      >
+        <div className="w-full h-full bg-gray-500 flex items-center justify-center">
+          <span className="text-white text-lg">Before</span>
+        </div>
+      </div>
+
+      {/* Draggable Divider */}
+      <div
+        className="absolute top-0 h-full w-1 bg-yellow-500 cursor-col-resize"
+        style={{ left: `${dividerPosition}%` }}
+        onMouseDown={handleMouseDown} // Enable dragging on click and hold
+      />
+
+      {/* Right Section */}
+      <div
+        className="h-full bg-gray-100"
+        style={{ width: `${100 - dividerPosition}%` }}
+      >
+        <div className="w-full h-full bg-gray-50 flex items-center justify-center">
+          <span className="text-gray-800 text-lg">After</span>
+        </div>
+      </div>
+    </div>
+
 </div>
 
      
