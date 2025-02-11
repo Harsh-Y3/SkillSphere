@@ -89,29 +89,19 @@ function App() {
   const serviceHover = "flex justify-center items-center rounded-3xl group-hover:bg-blue-500 group-hover:bg-opacity-50  h-[250px] w-[270px]"
 
   // our service slider
-  
-  const [dividerPosition, setDividerPosition] = useState(50); // Initial position at 50%
-  const [isDragging, setIsDragging] = useState(false);
+  const brands = [
+    "https://static.vecteezy.com/system/resources/previews/022/101/084/large_2x/philips-logo-transparent-free-png.png",
+    "https://th.bing.com/th/id/R.a8a655ee926daaff53a7e98fff27f2e9?rik=%2bHZnveegkBfayg&riu=http%3a%2f%2fpngimg.com%2fuploads%2flg_logo%2flg_logo_PNG15.png&ehk=04d34z32I95izfs%2b6b%2bh8Iq6hnex%2bx7nUJ6i5Jw5%2flM%3d&risl=&pid=ImgRaw&r=0",
+    "https://brandeps.com/logo-download/G/Godrej-logo-01.png",
+    "https://iconape.com/wp-content/png_logo_vector/syska-led-logo.png",
+    "https://seeklogo.com/images/U/usha-logo-C928D9208C-seeklogo.com.png",
+    "https://download.logo.wine/logo/Havells/Havells-Logo.wine.png",
+    "https://static.vecteezy.com/system/resources/previews/024/555/227/original/bajaj-logo-transparent-free-png.png",
+    "https://global.jaquar.com/images/thumbs/0049616_0037051_Jaquar-logo-new-764x101.png"
+  ];
 
-  const handleMouseDown = () => {
-    setIsDragging(true); // Start dragging
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false); // Stop dragging
-  };
-
-  const handleMouseMove = (e) => {
-    if (!isDragging) return; // Only update position if dragging
-
-    const container = e.currentTarget.getBoundingClientRect();
-    const newDividerPosition = ((e.clientX - container.left) / container.width) * 100;
-
-    // Clamp the position between 0% and 100%
-    if (newDividerPosition >= 0 && newDividerPosition <= 100) {
-      setDividerPosition(newDividerPosition);
-    }
-  };
+ 
+ 
 
     
   return (
@@ -684,7 +674,7 @@ function App() {
 
       <div>
         <section className=' bg-black'>
-          <div className='flex flex-row mx-40 p-10'>
+          <div className='flex flex-row mx-40 py-10 '>
             <div className='w-[587px] h-[163px]'>
               <h1 className='text-yellow-400 font-semibold'>Friendly Services</h1>
               <h1 className='text-5xl text-white font-bold'>safe and secure Plumbing, Electrical and Carpenter  Work</h1>
@@ -711,6 +701,60 @@ function App() {
             <p>Global Stores</p>
             </div>
           </div>
+          <div className='bg-gradient-to-b from-black to-yellow-400'>
+            <div className='w-full h-10 '></div>
+          </div>
+          <div className='flex flex-row px-40 p-10 pt-10 bg-yellow-400'>
+            <div className='w-[587px] h-[163px]'>
+              <h1 className=' text-white font-semibold'>Quality Product</h1>
+              <h1 className='text-5xl font-bold pt-5'>We Use Finest ingredients</h1>
+            </div>
+            <div className='w-[368px] ml-20 border-l-2 border-blue-500'>
+                <p className='text-black pl-10'>Egestas erat imperdiet sed euismod nisi porta lorem mollis. Nunc scelerisque viverra mauris in aliquam. Morbi non arcu risus quis.Libero enim sed faucibus turpis in eu mi. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium nibh.</p>
+            </div>
+          </div>
+          <main className="max-w-[1250px]  bg-yellow-400">
+      <div
+        className="relative overflow-hidden w-full"
+        style={{
+          height: "100px",
+          maskImage:
+            "linear-gradient(to right, transparent, #000 10%, #000 90%, transparent)",
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent, #000 10%, #000 90%, transparent)"
+        }}
+      >
+        <div className="relative flex bg-yellow-400 ml-20">
+          {brands.map((brand, idx) => (
+            <motion.div
+              key={idx}
+              className="absolute"
+              style={{
+                width: "150px",
+                height: "100px"
+              }}
+              initial={{ left: "100%" }}
+              animate={{ left: "-150px" }}
+              transition={{
+                duration: 10,
+                ease: "linear",
+                repeat: Infinity,
+                delay: (10 / brands.length) * idx
+              }}
+              whileHover={{
+                filter: "grayscale(0)",
+                animationPlayState: "paused"
+              }}
+            >
+              <img src={brand} alt="" className="w-full h-full object-contain mix-blend-color-do" />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </main>
+
+          
+          
 
         </section>
       </div>
@@ -789,40 +833,7 @@ function App() {
     </section>
   </div>
 
- <div
-      className="relative flex w-full h-screen overflow-hidden"
-      onMouseMove={handleMouseMove} // Update position only during dragging
-      onMouseUp={handleMouseUp} // Stop dragging on mouse release
-      onMouseLeave={handleMouseUp} // Stop dragging if the mouse leaves the container
-    >
-      {/* Left Section */}
-      <div
-        className="h-full bg-gray-300"
-        style={{ width: `${dividerPosition}%` }}
-      >
-        <div className="w-full h-full bg-gray-500 flex items-center justify-center">
-          <span className="text-white text-lg">Before</span>
-        </div>
-      </div>
-
-      {/* Draggable Divider */}
-      <div
-        className="absolute top-0 h-full w-1 bg-yellow-500 cursor-col-resize"
-        style={{ left: `${dividerPosition}%` }}
-        onMouseDown={handleMouseDown} // Enable dragging on click and hold
-      />
-
-      {/* Right Section */}
-      <div
-        className="h-full bg-gray-100"
-        style={{ width: `${100 - dividerPosition}%` }}
-      >
-        <div className="w-full h-full bg-gray-50 flex items-center justify-center">
-          <span className="text-gray-800 text-lg">After</span>
-        </div>
-      </div>
-    </div>
-
+ 
 </div>
 
      
