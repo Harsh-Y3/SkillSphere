@@ -713,22 +713,22 @@ function App() {
                 <p className='text-black pl-10'>Egestas erat imperdiet sed euismod nisi porta lorem mollis. Nunc scelerisque viverra mauris in aliquam. Morbi non arcu risus quis.Libero enim sed faucibus turpis in eu mi. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium nibh.</p>
             </div>
           </div>
-          <main className="max-w-[1250px]  bg-yellow-400">
+          <main className="max-w-[1550px] pl-[80px] bg-yellow-400">
       <div
         className="relative overflow-hidden w-full"
         style={{
           height: "100px",
           maskImage:
-            "linear-gradient(to right, transparent, #000 10%, #000 90%, transparent)",
+            "linear-gradient(to right, transparent, #000 25%, #000 25%, transparent)",
           WebkitMaskImage:
-            "linear-gradient(to right, transparent, #000 10%, #000 90%, transparent)"
+            "linear-gradient(to right, transparent, #000 25%, #000 25%, transparent)"
         }}
       >
-        <div className="relative flex bg-yellow-400 ml-20">
+        <div className="relative flex bg-yellow-400 ml-24 gap-10">
           {brands.map((brand, idx) => (
             <motion.div
               key={idx}
-              className="absolute"
+              className="absolute gap-10"
               style={{
                 width: "150px",
                 height: "100px"
