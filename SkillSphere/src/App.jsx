@@ -721,7 +721,7 @@ const handleInput = (e) => {
                 <p className='text-black pl-10'>Egestas erat imperdiet sed euismod nisi porta lorem mollis. Nunc scelerisque viverra mauris in aliquam. Morbi non arcu risus quis.Libero enim sed faucibus turpis in eu mi. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium nibh.</p>
             </div>
           </div>
-          <main className="max-w-[1550px] pl-[80px] bg-blue-300">
+          <main className="max-w-screen pl-[80px] bg-yellow-400">
       <div
         className="relative overflow-hidden w-full"
         style={{
