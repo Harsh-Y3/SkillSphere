@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import logo from './assets/Logo.jpg'
 import './App.css'
 import {delay, motion} from 'framer-motion'
@@ -101,9 +101,17 @@ function App() {
   ];
 
  
- 
+//  before after images 
+const inputSlider = useRef(null); // Reference for the slider input
+const beforeImg = useRef(null); // Reference for the "before" image
+const [sliderValue, setSliderValue] = useState(50); // State to control slider value
 
-    
+const handleInput = (e) => {
+  const sliderVal = e.target.value; // Get the slider value
+  setSliderValue(sliderVal); // Update the state
+};
+
+
   return (
     <div className=' overflow-hidden z-20 m-0 p-0 '> 
       {/* hereo uncle, header */}
@@ -673,7 +681,7 @@ function App() {
       {/* our work section */}
 
       <div>
-        <section className=' bg-black'>
+        <section className=' bg-blue-400'>
           <div className='flex flex-row mx-40 py-10 '>
             <div className='w-[587px] h-[163px]'>
               <h1 className='text-yellow-400 font-semibold'>Friendly Services</h1>
@@ -701,10 +709,10 @@ function App() {
             <p>Global Stores</p>
             </div>
           </div>
-          <div className='bg-gradient-to-b from-black to-yellow-400'>
+          <div className='bg-gradient-to-b from-blue-400 to-blue-300'>
             <div className='w-full h-10 '></div>
           </div>
-          <div className='flex flex-row px-40 p-10 pt-10 bg-yellow-400'>
+          <div className='flex flex-row px-40 p-10 pt-10 bg-blue-300'>
             <div className='w-[587px] h-[163px]'>
               <h1 className=' text-white font-semibold'>Quality Product</h1>
               <h1 className='text-5xl font-bold pt-5'>We Use Finest ingredients</h1>
@@ -713,7 +721,7 @@ function App() {
                 <p className='text-black pl-10'>Egestas erat imperdiet sed euismod nisi porta lorem mollis. Nunc scelerisque viverra mauris in aliquam. Morbi non arcu risus quis.Libero enim sed faucibus turpis in eu mi. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium nibh.</p>
             </div>
           </div>
-          <main className="max-w-[1550px] pl-[80px] bg-yellow-400">
+          <main className="max-w-[1550px] pl-[80px] bg-blue-300">
       <div
         className="relative overflow-hidden w-full"
         style={{
@@ -724,7 +732,7 @@ function App() {
             "linear-gradient(to right, transparent, #000 25%, #000 25%, transparent)"
         }}
       >
-        <div className="relative flex bg-yellow-400 ml-24 gap-10">
+        <div className="relative flex bg-blue-400 ml-24 gap-10">
           {brands.map((brand, idx) => (
             <motion.div
               key={idx}
@@ -758,7 +766,49 @@ function App() {
 
         </section>
       </div>
+      
+      {/* before after image */}
+     
+        <div className="">
+          <div className="">
+            <div className="">
 
+            </div>
+          </div>
+          <div className="max-w-[700px] my-[40px]">
+      <div className="relative flex">
+        {/* Before Image */}
+        <img
+          ref={beforeImg}
+          className="absolute top-0 h-full object-cover object-left border-r-8 border-blue-300"
+          src="https://wdtthemes.kinsta.cloud/mezan/wp-content/uploads/sites/4/2024/03/home2_Carousel1_1.jpg"
+          alt="before"
+          style={{ width: `${sliderValue}%` }} // Dynamically set width
+        />
+
+        {/* After Image */}
+        <img
+          className="w-full h-full object-cover object-left "
+          src="https://wdtthemes.kinsta.cloud/mezan/wp-content/uploads/sites/4/2024/03/home2_Carousel1_2.jpg"
+          alt="after"
+        />
+
+        {/* Slider Input */}
+        <div className=" ">
+        <input
+          ref={inputSlider}
+          type="range"
+          className="absolute inset-0 z-10 appearance-none bg-white  bg-transparent cursor-pointer"
+          min={0}
+          max={100}
+          value={sliderValue}
+          onInput={handleInput} // React equivalent of "addEventListener"
+        />
+        </div>
+      </div>
+    </div>
+
+        </div>
 
     {/* customer review card */}
     <div className="w-screen h-screen">
@@ -832,6 +882,9 @@ function App() {
 
     </section>
   </div>
+
+
+  
 
  
 </div>
