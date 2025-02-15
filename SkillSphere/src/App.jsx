@@ -1,11 +1,12 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import logo from './assets/Logo.jpg'
 import './App.css'
 import {delay, motion} from 'framer-motion'
 import icons from './assets/assets'
 import background from './assets/background-vid-skillsphere.mp4'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { image } from 'framer-motion/client'
+import { div, image } from 'framer-motion/client'
+import beforeAfterImg from './assets/beforeAfter'
 
 
 function App() {
@@ -112,13 +113,14 @@ const handleInput = (e) => {
 };
 
 
+
   return (
     <div className=' overflow-hidden z-20 m-0 p-0 '> 
       {/* hereo uncle, header */}
         <div className='relative h-screen w-full text-white'>
         <div className="absolute inset-0">
             <video 
-            className="  fixed -z-20  top-0 left-0 w-full h-full object-cover" 
+            className=" fixed -z-20  top-0 left-0 w-full h-full object-cover" 
             autoPlay 
             loop 
             muted 
@@ -721,7 +723,7 @@ const handleInput = (e) => {
                 <p className='text-black pl-10'>Egestas erat imperdiet sed euismod nisi porta lorem mollis. Nunc scelerisque viverra mauris in aliquam. Morbi non arcu risus quis.Libero enim sed faucibus turpis in eu mi. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium nibh.</p>
             </div>
           </div>
-          <main className="max-w-screen pl-[80px] bg-yellow-400">
+          <main className="max-w-screen pl-[80px] bg-blue-300">
       <div
         className="relative overflow-hidden w-full"
         style={{
@@ -749,10 +751,7 @@ const handleInput = (e) => {
                 repeat: Infinity,
                 delay: (10 / brands.length) * idx
               }}
-              whileHover={{
-                filter: "grayscale(0)",
-                animationPlayState: "paused"
-              }}
+              
             >
               <img src={brand} alt="" className="w-full h-full object-contain mix-blend-color-do" />
             </motion.div>
@@ -769,8 +768,10 @@ const handleInput = (e) => {
       
       {/* before after image */}
      
-        <div className="">
+        <div className="flex flex-col justify-center items-center  bg-white pt-10">
           <div className="">
+            <h1>Before & After</h1>
+            <h1>Amazing Work Results</h1>
             <div className="">
 
             </div>
@@ -780,8 +781,8 @@ const handleInput = (e) => {
         {/* Before Image */}
         <img
           ref={beforeImg}
-          className="absolute top-0 h-full object-cover object-left border-r-8 border-blue-300"
-          src="https://wdtthemes.kinsta.cloud/mezan/wp-content/uploads/sites/4/2024/03/home2_Carousel1_1.jpg"
+          className="absolute top-0 h-full object-cover object-left  border-blue-300"
+          src={beforeAfterImg.home2_before1_1}
           alt="before"
           style={{ width: `${sliderValue}%` }} // Dynamically set width
         />
@@ -789,22 +790,24 @@ const handleInput = (e) => {
         {/* After Image */}
         <img
           className="w-full h-full object-cover object-left "
-          src="https://wdtthemes.kinsta.cloud/mezan/wp-content/uploads/sites/4/2024/03/home2_Carousel1_2.jpg"
+          src={beforeAfterImg.home2_after1_2}
           alt="after"
         />
 
         {/* Slider Input */}
-        <div className=" ">
+       
         <input
+          
           ref={inputSlider}
           type="range"
-          className="absolute inset-0 z-10 appearance-none bg-white  bg-transparent cursor-pointer"
+          className="absolute inset-0 z-10 appearance-none   bg-transparent cursor-pointer"
           min={0}
           max={100}
           value={sliderValue}
           onInput={handleInput} // React equivalent of "addEventListener"
         />
-        </div>
+        
+        
       </div>
     </div>
 
@@ -883,7 +886,8 @@ const handleInput = (e) => {
     </section>
   </div>
 
-
+          {/* slider image */}
+        
   
 
  
