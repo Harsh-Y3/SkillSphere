@@ -103,13 +103,45 @@ function App() {
 
  
 //  before after images 
+
+const beforeAfter = [
+  {
+    before: beforeAfterImg.home2_before1_1,
+    after: beforeAfterImg.home2_after1_2,
+  },
+  {
+    before: beforeAfterImg.home2_before2_1,
+    after: beforeAfterImg.home2_after2_2,
+  },
+  {
+    before: beforeAfterImg.home2_before3_1,
+    after: beforeAfterImg.home2_after3_2,
+  },
+  {
+    before: beforeAfterImg.home2_before4_1,
+    after: beforeAfterImg.home2_after4_2,
+  },
+  {
+    before: beforeAfterImg.home2_before5_1,
+    after: beforeAfterImg.home2_after5_2,
+  },
+];
+
 const inputSlider = useRef(null); // Reference for the slider input
 const beforeImg = useRef(null); // Reference for the "before" image
-const [sliderValue, setSliderValue] = useState(50); // State to control slider value
-
-const handleInput = (e) => {
+const [sliderValues, setSliderValues] = useState(beforeAfter.map(() => 50)); // State to control slider values
+const visibleImgBoxes = 1
+const handleInput = (index, e) => {
   const sliderVal = e.target.value; // Get the slider value
-  setSliderValue(sliderVal); // Update the state
+  const newSliderValues = [...sliderValues];
+  newSliderValues[index] = sliderVal;
+  setSliderValues(newSliderValues); // Update the state
+};
+
+const [currentImgIndex, setCurrentImgIndex] = useState(-2);
+
+const handleImgDotClick = (index) => {
+  setCurrentImgIndex(index);
 };
 
 
@@ -579,7 +611,7 @@ const handleInput = (e) => {
                 type="number"
                 placeholder='Mobile Number'
                 minLength="10"
-                max="10"
+                maxLength="10"
                 
                 required/>
                 <input 
@@ -768,50 +800,80 @@ const handleInput = (e) => {
       
       {/* before after image */}
      
-        <div className="flex flex-col justify-center items-center  bg-white pt-10">
-          <div className="">
-            <h1>Before & After</h1>
-            <h1>Amazing Work Results</h1>
-            <div className="">
+      <div className="flex flex-col justify-center items-center bg-white pt-7">
+      <div className="pt-7">
+        <h1 className="font-semibold text-5xl text-center pb-4">Before & After</h1>
+        <h1 className="font-bold text-6xl">Amazing Work Results</h1>
+        <div className=""></div>
+      </div>
+      <div className="">
+        <div className="relative flex">{/* Before Image */}</div>
+        <div className="flex overflow-hidden">
+          <div
+            className="flex transition-transform duration-500 ease-in-out gap-10 pt-10 left-10"
+            style={{
+              transform: `translateX(-${currentImgIndex/ 5  * (100)}%)`,
+              width: `${(beforeAfter.length /visibleBoxes ) * 100}%`,
+            }}
+          >
+            {beforeAfter.map((itemImg, indexImg) => (
+              <motion.div
+                key={indexImg}
+                className="w-[800px] gap-10"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.4 }}
+                viewport={{ once: true }}
+              >
+                <div className="relative flex">
+                  {/* Before Image */}
+                  <img
+                    ref={beforeImg}
+                    className="absolute top-0 h-full object-cover object-left border-blue-300"
+                    src={itemImg.before}
+                    alt="before"
+                    style={{ width: `${sliderValues[indexImg]}%` }} // Dynamically set width
+                  />
 
-            </div>
+                  {/* After Image */}
+                  <img
+                    className="w-full h-full object-cover object-left"
+                    src={itemImg.after}
+                    alt="after"
+                  />
+
+                  {/* Slider Input */}
+                  <input
+                    ref={inputSlider}
+                    type="range"
+                    className="absolute inset-0 z-10 appearance-none bg-transparent cursor-pointer"
+                    min={0}
+                    max={100}
+                    value={sliderValues[indexImg]} // Use individual slider value
+                    onInput={(e) => handleInput(indexImg, e)} // Pass index and event to handleInput
+                  />
+                </div>
+              </motion.div>
+            ))}
           </div>
-          <div className="max-w-[700px] my-[40px]">
-      <div className="relative flex">
-        {/* Before Image */}
-        <img
-          ref={beforeImg}
-          className="absolute top-0 h-full object-cover object-left  border-blue-300"
-          src={beforeAfterImg.home2_before1_1}
-          alt="before"
-          style={{ width: `${sliderValue}%` }} // Dynamically set width
-        />
-
-        {/* After Image */}
-        <img
-          className="w-full h-full object-cover object-left "
-          src={beforeAfterImg.home2_after1_2}
-          alt="after"
-        />
-
-        {/* Slider Input */}
-       
-        <input
-          
-          ref={inputSlider}
-          type="range"
-          className="absolute inset-0 z-10 appearance-none   bg-transparent cursor-pointer"
-          min={0}
-          max={100}
-          value={sliderValue}
-          onInput={handleInput} // React equivalent of "addEventListener"
-        />
-        
-        
+        </div>
+        <div className="flex justify-center mt-4 pt-10 space-x-2">
+          {Array.from({ length: Math.ceil(beforeAfter.length / visibleImgBoxes ) }).map((_, indexImg) => (
+            <motion.button
+              key={indexImg}
+              onClick={() => handleImgDotClick(indexImg)}
+              className={`h-3 w-3 rounded-full ${
+                currentImgIndex === indexImg ? 'bg-blue-500' : 'bg-gray-400'
+              }`}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: true }}
+            ></motion.button>
+          ))}
+        </div>
       </div>
     </div>
-
-        </div>
 
     {/* customer review card */}
     <div className="w-screen h-screen">
