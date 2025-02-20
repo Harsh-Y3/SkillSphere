@@ -7,6 +7,7 @@ import background from './assets/background-vid-skillsphere.mp4'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { div, image } from 'framer-motion/client'
 import beforeAfterImg from './assets/beforeAfter'
+import contactWorkerBg from './assets/ContactWorkerBg.jpg'
 
 
 function App() {
@@ -936,9 +937,9 @@ const handleImgDotClick = (indexImg) => {
     </div>
 
     {/* customer review card */}
-    <div className="w-screen h-screen">
-      <section className="bg-white relative h-screen w-screen  pt-10">
-      <div className=" mx-auto  p-10 h-auto rounded-lg shadow-lg flex flex-col md:flex-row items-center">
+    <div className="w-screen  z-30 h-[500px]">
+      <section className="bg-white relative  w-screen  pt-10">
+      <div className=" mx-auto  p-10  rounded-lg shadow-lg flex flex-col md:flex-row items-center">
         {/* Left Side - Illustration */}
         <motion.div 
          initial={{ opacity: 0, x: -50 }}
@@ -954,7 +955,7 @@ const handleImgDotClick = (indexImg) => {
         </motion.div>
 
         {/* Right Side - Testimonial Content */}
-        <div className=" bg-gray-100 rounded-[50px] w-[80%] h-[800px] p-4 flex flex-col">
+        <div className=" bg-gray-100 rounded-[50px] w-[80%] h-[640px] p-4 flex flex-col">
         <motion.h3 
          initial={{ opacity: 0, x: -50 }}
          whileInView={{ opacity: 1, x: 0 }}
@@ -990,7 +991,6 @@ const handleImgDotClick = (indexImg) => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              viewport={{ once: true }}
               key={i} className="text-yellow-500  text-3xl">★</motion.span>
             ))}
           </div>
@@ -1004,7 +1004,7 @@ const handleImgDotClick = (indexImg) => {
            viewport={{ once: true }}
           className='flex flex-col'>
             <p className="pt-7 text-gray-600 text-3xl">{reviews[activeReview].text} </p>
-            <div className="mt-4 flex  items-center space-x-3"
+            <div className="mt-4 flex pt-3 items-center space-x-3  border-t-2 border-yellow-500"
             
             >
               <img
@@ -1050,7 +1050,39 @@ const handleImgDotClick = (indexImg) => {
     </section>
   </div>
 
-          {/* slider image */}
+ {/* contact form */}
+ <div>
+  <section className=' bg-gradient-to-r from-yellow-300 to-blue-500 pt-[300px]'>
+    <div className='flex flex-row  justify-around'>
+      {/* right content */}
+      <div className='pt-20 pl-10' >
+        <div className='flex flex-col'>
+        <img 
+        className='h-50 w-50 rounded-3xl w-[555px] h-[740px]'
+        src={contactWorkerBg} alt="" />
+        <div className='text-center mt-[-80px] backdrop-blur backdrop-grayscale'>
+          <p>info@example.com
+          24/7 Contact Support</p>
+        </div>
+        </div>
+      </div>
+      {/* left content */}
+      <div className='pt-20 w-[604px] h-[740px]'>
+        <div>
+        <p className='font-semibold text-3xl'>get in touch</p>
+        <h1 className='font-bold text-5xl mt-5'>Effortless Booking with us</h1>
+        <h3 className='pt-3'>Habitasse platea dictumst quisque sagittis purus sit. Scelerisque viverra mauris in aliquam sem fringilla ut morbi. Et leo duis ut diam quam nulla porttitor.</h3>
+        </div>
+        <div className=''>
+          <form className='grid grid-cols-2 gap-5'>
+            <input type="text" /><input type="text" /><input type="text" /><input type="text" /><input type="text" /><input type="text" /><input type="text" />
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </section>
+ </div>
         
   
 
