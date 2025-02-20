@@ -139,11 +139,24 @@ const handleInput = (index, e) => {
 };
 
 const [currentImgIndex, setCurrentImgIndex] = useState(0);
+useState(() => 
+{
+  const interval = setInterval(() => 
+  {
+    setCurrentImgIndex((prevIndex) =>
+    
+      prevIndex === beforeAfter.length - 1 ? 0 : prevIndex + 1
+    );
+  }, 5000);
+  return () => clearInterval(interval);
+}, [beforeAfter.length]);
 
-const handleImgDotClick = (index) => {
-  setCurrentImgIndex(index);
+
+
+const handleImgDotClick = (indexImg) => {
+  
+  setCurrentImgIndex(indexImg * visibleImgBoxes);
 };
-
 
 
   return (
@@ -802,24 +815,26 @@ const handleImgDotClick = (index) => {
      
       <div className="flex flex-col justify-center items-center bg-white pt-7">
       <div className="pt-7">
-        <h1 className="font-semibold text-5xl text-center pb-4">Before & After</h1>
-        <h1 className="font-bold text-6xl">Amazing Work Results</h1>
+        <h1 className="font-semibold text-3xl text-center">Before & After</h1>
+        <h1 className="font-bold text-5xl mt-5">Amazing Work Results</h1>
         <div className=""></div>
       </div>
       <div className="">
         <div className="relative flex">{/* Before Image */}</div>
-        <div className="flex overflow-hidden">
+        <div className="flex overflow-hidden w-screen">
           <div
-            className="flex transition-transform duration-500 ease-in-out gap-10 pt-10 left-10"
+            className="flex transition-transform duration-500 w-[800px] pl-[370px] gap-10 ease-in-out pt-10"
             style={{
-              transform: `translateX(-${currentImgIndex / 5  * (100) }%)`,
-              width: `${(beforeAfter.length ) * 100}%`,
+             
+              transform: `translateX(-${currentImgIndex * 800}px)`,
+              transition: "transform 0.5s ease-in-out",
+              // width: `${beforeAfter.length * 100}px`,
             }}
           >
             {beforeAfter.map((itemImg, indexImg) => (
               <motion.div
                 key={indexImg}
-                className="w-[800px] gap-10"
+                className="w-[800px] flex-shrink-0"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.4 }}
@@ -851,6 +866,11 @@ const handleImgDotClick = (index) => {
                     max={100}
                     value={sliderValues[indexImg]} // Use individual slider value
                     onInput={(e) => handleInput(indexImg, e)} // Pass index and event to handleInput
+                    onChange={(e) => 
+                    {
+                      clearInterval(autoSlideRef.current);
+                    }
+                    }
                   />
                 </div>
               </motion.div>
@@ -858,7 +878,7 @@ const handleImgDotClick = (index) => {
           </div>
         </div>
         <div className="flex justify-center mt-4 pt-10 space-x-2">
-          {Array.from({ length: Math.ceil(beforeAfter.length / visibleImgBoxes ) }).map((_, indexImg) => (
+          {Array.from({ length: beforeAfter.length }).map((_, indexImg) => (
             <motion.button
               key={indexImg}
               onClick={() => handleImgDotClick(indexImg)}
