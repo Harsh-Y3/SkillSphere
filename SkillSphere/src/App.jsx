@@ -138,7 +138,7 @@ const handleInput = (index, e) => {
   setSliderValues(newSliderValues); // Update the state
 };
 
-const [currentImgIndex, setCurrentImgIndex] = useState(-2);
+const [currentImgIndex, setCurrentImgIndex] = useState(0);
 
 const handleImgDotClick = (index) => {
   setCurrentImgIndex(index);
@@ -812,8 +812,8 @@ const handleImgDotClick = (index) => {
           <div
             className="flex transition-transform duration-500 ease-in-out gap-10 pt-10 left-10"
             style={{
-              transform: `translateX(-${currentImgIndex/ 5  * (100)}%)`,
-              width: `${(beforeAfter.length /visibleBoxes ) * 100}%`,
+              transform: `translateX(-${currentImgIndex / 5  * (100) }%)`,
+              width: `${(beforeAfter.length ) * 100}%`,
             }}
           >
             {beforeAfter.map((itemImg, indexImg) => (
