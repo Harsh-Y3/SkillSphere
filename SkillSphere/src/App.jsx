@@ -190,6 +190,12 @@ const handleImgDotClick = (indexImg) => {
 };
 
 
+
+// contact us Style
+
+const ContactUsInput = "appearance-none border-2 bg-blue-100 h-10 border-red-50 rounded-xl p-4 invalid:border-red-500   valid:border-green-400"
+
+
   return (
     <div className=' overflow-hidden z-20 m-0 p-0 '> 
       {/* hereo uncle, header */}
@@ -1074,8 +1080,62 @@ const handleImgDotClick = (indexImg) => {
         <h3 className='pt-3'>Habitasse platea dictumst quisque sagittis purus sit. Scelerisque viverra mauris in aliquam sem fringilla ut morbi. Et leo duis ut diam quam nulla porttitor.</h3>
         </div>
         <div className=''>
-          <form className='grid grid-cols-2 gap-5'>
-            <input type="text" /><input type="text" /><input type="text" /><input type="text" /><input type="text" /><input type="text" /><input type="text" />
+          <form className='grid grid-cols-2 gap-5 pt-10'>
+            <input 
+            className={`${ContactUsInput} col-span-2 `}
+            placeholder='Select A Service'
+            type="text"
+            />
+
+            <input
+            type="text" 
+            placeholder='Name*'
+            className={`${ContactUsInput}`}
+            required
+            />
+
+            <input 
+            type="datetime-local"
+            className={`${ContactUsInput}`}
+            required
+            />
+            
+            <input 
+            type="email"
+            placeholder='E-mail*'
+            className={`${ContactUsInput}`} 
+            required
+            />
+
+            <input 
+            type="number"
+            placeholder='Phone Number'
+            className={`${ContactUsInput}`}
+            minLength="10"
+            maxLength="10"
+            required
+             />
+
+
+            <input 
+            type="text"
+            placeholder='Address*'
+            className={`col-span-2 ${ContactUsInput}`}
+            required
+             />
+
+            <textarea 
+            className={`col-span-2 h-[150px] resize-none  ${ContactUsInput}`}
+            placeholder='Description'
+            name="description" 
+            id=""
+            rows="9"
+            ></textarea>
+
+            <button
+            type="submit"
+            className='bg-blue-300 rounded-3xl h-10 w-36 hover:bg-yellow-400 translate transition duration-300'
+            >Submit Now</button>
           </form>
 
         </div>
