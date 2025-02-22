@@ -7,10 +7,10 @@ import eco from './eco.png'
 import star from './star.png'
 import support from './support.png'
 import license from './license.png'
-import { FaReact } from 'react-icons/fa'
+
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FaFacebook, FaInstagram, FaYoutube } from 'react-icons/fa'
+
 
 import { faCoffee, faHome, faHeart, faScrewdriver, faPlug, faHammer, faShower, faFireBurner, faDoorOpen, faHouse, faPaintRoller, faCalendarDays, faX, faCopyright, faLocationDot, faSquareEnvelope, faEnvelope, faCalendarTimes } from '@fortawesome/free-solid-svg-icons';
 
@@ -35,13 +35,7 @@ const icons =
     door: faDoorOpen,
     house: faHouse,
     paint: faPaintRoller,
-    calendar: faCalendarTimes,
-    copyRight: faCopyright,
-    location: faLocationDot,
-    mail: faEnvelope,
-    facebook: FaFacebook,
-    instagram: FaInstagram,
-    youtube: FaYoutube,
+    
 
 }
 

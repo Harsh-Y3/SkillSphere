@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { div, image, li } from 'framer-motion/client'
 import beforeAfterImg from './assets/beforeAfter'
 import contactWorkerBg from './assets/ContactWorkerBg.jpg'
-import { FaReact } from 'react-icons/fa'
+import { FaReact } from 'react-icons/fa6'
 
 
 function App() {
