@@ -5,7 +5,7 @@ import {delay, motion} from 'framer-motion'
 import icons from './assets/assets'
 import background from './assets/background-vid-skillsphere.mp4'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { div, image } from 'framer-motion/client'
+import { div, image, li } from 'framer-motion/client'
 import beforeAfterImg from './assets/beforeAfter'
 import contactWorkerBg from './assets/ContactWorkerBg.jpg'
 
@@ -194,6 +194,22 @@ const handleImgDotClick = (indexImg) => {
 // contact us Style
 
 const ContactUsInput = "appearance-none border-2 bg-blue-100 h-10 border-red-50 rounded-xl p-4 invalid:border-red-500   valid:border-green-400"
+
+const service =
+[
+  "Furniture",
+  "Web Dev",
+  "Programmer",
+  "Plimbing",
+  "Electrition",
+  "Pinting",
+]
+
+const [selectedService, setSelectedService] = useState("");
+const [isOpen, setIsOpen] = useState(false);
+const [searchBar, setSearchBar] = useState("");
+
+const filteredService = service.filter(service => service.toLowerCase().includes(searchBar.toLowerCase()));
 
 
   return (
@@ -943,9 +959,9 @@ const ContactUsInput = "appearance-none border-2 bg-blue-100 h-10 border-red-50 
     </div>
 
     {/* customer review card */}
-    <div className="w-screen  z-30 h-[500px]">
+    <div className="w-screen   h-[500px]">
       <section className="bg-white relative  w-screen  pt-10">
-      <div className=" mx-auto  p-10  rounded-lg shadow-lg flex flex-col md:flex-row items-center">
+      <div className=" mx-auto  p-10   flex flex-col md:flex-row items-center">
         {/* Left Side - Illustration */}
         <motion.div 
          initial={{ opacity: 0, x: -50 }}
@@ -1058,7 +1074,7 @@ const ContactUsInput = "appearance-none border-2 bg-blue-100 h-10 border-red-50 
 
  {/* contact form */}
  <div>
-  <section className=' bg-gradient-to-r from-yellow-300 to-blue-500 pt-[300px]'>
+  <section className=' bg-gradient-to-t from-yellow-300 to-white pt-[300px] pb-[130px]'>
     <div className='flex flex-row  justify-around'>
       {/* right content */}
       <div className='pt-20 pl-10' >
@@ -1066,8 +1082,8 @@ const ContactUsInput = "appearance-none border-2 bg-blue-100 h-10 border-red-50 
         <img 
         className='h-50 w-50 rounded-3xl w-[555px] h-[740px]'
         src={contactWorkerBg} alt="" />
-        <div className='text-center mt-[-80px] backdrop-blur backdrop-grayscale'>
-          <p>info@example.com
+        <div className='text-center pb-10 h-[80px] rounded-3xl mt-[-80px] bg-backdrop-blur bg-backdrop-grayscale'>
+          <p className='text-yellow-300 opacity-100'>info@example.com <br />
           24/7 Contact Support</p>
         </div>
         </div>
@@ -1085,7 +1101,39 @@ const ContactUsInput = "appearance-none border-2 bg-blue-100 h-10 border-red-50 
             className={`${ContactUsInput} col-span-2 `}
             placeholder='Select A Service'
             type="text"
+            value={selectedService}
+            onChange={(e) => setSearchBar(e.target.value)}
+            onFocus={() => setIsOpen(true)}
             />
+            {isOpen &&
+            (
+              <div className="absolute w-full bg-white shadow-md rounded-lg mt-2 z-10">
+                <input type="text"
+                placeholder='Search service...'
+                value={searchBar}
+                onChange={(e) => setSearchBar(e.targer.value)}
+                className='w-full p-3 border-b' />
+                <ul>
+                  {filteredService.map((service, index) => 
+                  (
+                    <li
+                    key={index}
+                    className='p-3 hover:bg-gray-100 cursor-pointer'
+                    onClick={() =>
+                    {
+                      setSelectedService(service);
+                      setIsOpen(false);
+                    }
+                    }
+                    >
+                      {service}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )
+
+            }
 
             <input
             type="text" 
