@@ -8,17 +8,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { div, image, li } from 'framer-motion/client'
 import beforeAfterImg from './assets/beforeAfter'
 import contactWorkerBg from './assets/ContactWorkerBg.jpg'
+import { FaReact } from 'react-icons/fa'
 
 
 function App() {
   const [count, setCount] = useState(0)
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const [activeReview, setActiveReview] = useState(0);
+  
    
  
-  
-
+  // review section
+  const [activeReview, setActiveReview] = useState(0);
   const reviews = [
     {
       name: "Consolata Daria",
@@ -50,10 +51,7 @@ function App() {
     },
   ];
 
-
- 
-
-  useState(() => 
+    useState(() => 
     {
       const interval = setInterval(() => 
       {
@@ -65,11 +63,7 @@ function App() {
       return () => clearInterval(interval);
     }, [reviews.length]);
     
-  
-
-
-
-// about section
+  // about section
   const data = [
     {
       icon: icons.money,
@@ -203,13 +197,32 @@ const service =
   "Plimbing",
   "Electrition",
   "Pinting",
+  "Other Services",
+  
 ]
 
 const [selectedService, setSelectedService] = useState("");
 const [isOpen, setIsOpen] = useState(false);
 const [searchBar, setSearchBar] = useState("");
+const dropDownRef = useRef(null);
 
 const filteredService = service.filter(service => service.toLowerCase().includes(searchBar.toLowerCase()));
+
+useEffect(() =>
+{
+  function handleClickOutside(event)
+  {
+    if(dropDownRef.current && !dropDownRef.current.contains(event.target))
+    {
+      setIsOpen(false);
+    }
+  }
+  document.addEventListener("mousedown", handleClickOutside);
+  return () =>
+  {
+    document.removeEventListener("mousedown", handleClickOutside);
+  };
+}, []);
 
 
   return (
@@ -476,7 +489,7 @@ const filteredService = service.filter(service => service.toLowerCase().includes
         
 
 
-      {/* Our service start */}
+
       {/* our service main div */}
       <div className="pt-[100px] bg-blue-100 pb-[100px]"> 
 
@@ -697,7 +710,7 @@ const filteredService = service.filter(service => service.toLowerCase().includes
                 className='bg-yellow-400 rounded-2xl '
                 >Get A Quote </button> 
                 <textarea 
-                className={` appearance-none bg-blue-100  rounded-xl pl-4 pt-4 pr-2 pb-3 col-span-2 h-24  invalid:border-red-500   valid:border-green-400 `}
+                className={` appearance-none resize-none bg-blue-100  rounded-xl pl-4 pt-4 pr-2 pb-3 col-span-2 h-24  invalid:border-red-500   valid:border-green-400 `}
                 type="text" 
                 placeholder='Description' 
                 minLength="20"
@@ -1074,24 +1087,27 @@ const filteredService = service.filter(service => service.toLowerCase().includes
 
  {/* contact form */}
  <div>
-  <section className=' bg-gradient-to-t from-yellow-300 to-white pt-[300px] pb-[130px]'>
+  <section className=' bg-gradient-to-t from-yellow-300 to-white pt-[300px] pb-[100px]'>
     <div className='flex flex-row  justify-around'>
-      {/* right content */}
+      {/* left content */}
       <div className='pt-20 pl-10' >
         <div className='flex flex-col'>
         <img 
         className='h-50 w-50 rounded-3xl w-[555px] h-[740px]'
         src={contactWorkerBg} alt="" />
-        <div className='text-center pb-10 h-[80px] rounded-3xl mt-[-80px] bg-backdrop-blur bg-backdrop-grayscale'>
-          <p className='text-yellow-300 opacity-100'>info@example.com <br />
+        <div className='flex justify-center gap-2 text-center pb-10 h-[90px] rounded-3xl mt-[-90px] backdrop-blur backdrop-grayscale-1'>
+          <img src={icons.call} alt=""
+          className=' w-10 h-[50px] mt-4'
+          />
+          <p className='text-yellow-300 opacity-100 mt-4'>contact@skillsphere.com <br />
           24/7 Contact Support</p>
         </div>
         </div>
       </div>
-      {/* left content */}
+      {/* right content */}
       <div className='pt-20 w-[604px] h-[740px]'>
         <div>
-        <p className='font-semibold text-3xl'>get in touch</p>
+        <p className='font-semibold text-3xl'>Get In Touch</p>
         <h1 className='font-bold text-5xl mt-5'>Effortless Booking with us</h1>
         <h3 className='pt-3'>Habitasse platea dictumst quisque sagittis purus sit. Scelerisque viverra mauris in aliquam sem fringilla ut morbi. Et leo duis ut diam quam nulla porttitor.</h3>
         </div>
@@ -1103,32 +1119,48 @@ const filteredService = service.filter(service => service.toLowerCase().includes
             type="text"
             value={selectedService}
             onChange={(e) => setSearchBar(e.target.value)}
-            onFocus={() => setIsOpen(true)}
+            onFocus={() => setIsOpen(!isOpen)}
+            readOnly
             />
             {isOpen &&
             (
-              <div className="absolute w-full bg-white shadow-md rounded-lg mt-2 z-10">
+              <div 
+              ref={dropDownRef}
+              className="absolute w-[600px] h-64 bg-white shadow-md rounded-lg mt-12 z-10 max-h-60 overflow-y-auto">
                 <input type="text"
                 placeholder='Search service...'
                 value={searchBar}
-                onChange={(e) => setSearchBar(e.targer.value)}
-                className='w-full p-3 border-b' />
-                <ul>
-                  {filteredService.map((service, index) => 
+                onChange={(e) => setSearchBar(e.target.value)}
+                autoFocus
+                className={`${ContactUsInput} w-full pt-4 p-3 rounded-lg  border-yellow-400`} />
+                <ul className='w-full'>
+                  {filteredService.length > 0 ?
                   (
+                    filteredService.map((service, index) =>
+                    (
+                      <li
+                      key={index}
+                      className='p-3 hover:bg-gray-100 cursor-pointer'
+                      onClick={() =>
+                      {
+                        setSelectedService(service);
+                        setIsOpen(false);
+                      }
+                      }
+                      >
+                        {service}
+                      </li>
+                    ))
+                  ) : (
                     <li
-                    key={index}
-                    className='p-3 hover:bg-gray-100 cursor-pointer'
-                    onClick={() =>
-                    {
-                      setSelectedService(service);
-                      setIsOpen(false);
-                    }
-                    }
+                    className='p-3 text-gray-500'
                     >
-                      {service}
+                      No Service Found Use Other Services
                     </li>
-                  ))}
+                  )
+                 }
+                  
+                 
                 </ul>
               </div>
             )
@@ -1173,7 +1205,7 @@ const filteredService = service.filter(service => service.toLowerCase().includes
              />
 
             <textarea 
-            className={`col-span-2 h-[150px] resize-none  ${ContactUsInput}`}
+            className={` col-span-2 h-[150px] resize-none  ${ContactUsInput}`}
             placeholder='Description'
             name="description" 
             id=""
@@ -1192,7 +1224,30 @@ const filteredService = service.filter(service => service.toLowerCase().includes
   </section>
  </div>
         
-  
+  {/* Links */}
+  <div className="">
+    <section className='bg-green-200 flex justify-around- text-white'>
+      <div className="">
+        <div className="">
+          <img 
+          className='w-[250px] h-[150px] border-s-6 rounded-full mix-blend-lighten'
+          src={logo} alt="" />
+          <p>
+          Duis ultricies libero sit amet aliquam fermentum. Nunc tincidunt mollis dui in tempor
+          </p>
+          <div className="flex">
+            <img src={icons.mail}
+             alt=""
+             className='w-[250px] h-[150px]' />
+             <p>Monday-Saturday</p>
+             <p>9.00 Am - 9.00 Pm</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
 
  
 </div>
