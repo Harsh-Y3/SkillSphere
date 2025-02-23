@@ -226,7 +226,7 @@ useEffect(() =>
 
 
   return (
-    <div className=' overflow-hidden z-20 m-0 p-0 '> 
+    <div className=' overflow-hidden z-20 m-0 p-0 font-serif '> 
       {/* hereo uncle, header */}
         <div className=' h-screen w-full text-white '>
         <div className="absolute inset-0">
@@ -644,7 +644,7 @@ useEffect(() =>
         </div>
       </div>
 
-      {/* contact form */}
+      {/* get a quate form */}
       <div className=''>
         <section className='bg-white pt-10 flex justify-center  '>
           <div className='flex'>
@@ -724,7 +724,7 @@ useEffect(() =>
             initial={{ opacity: 0,  y:50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}
             
             className="mt-[60px] bg-gray-100 w-[1000px] h-[256px] flex flex-row rounded-[30px]  ">
-              <div className="flex flex-col  items-center bg-yellow-400 rounded-[30px] w-72  ">
+              <div className="flex flex-col  items-center bg-yellow-400 rounded-[30px] w-72 pt-4  ">
                 <p className='text-xl pt-3 font-semibold'>People Trust</p>
                 <h1 className='text-3xl pt-4 font-bold'>Why We 
                   <br />
@@ -738,19 +738,19 @@ useEffect(() =>
                   className='h-[63px]] w-[68px] pt-4'
                   alt="" />
                 </div>                
-                <div className="pt-4">
-                <h1 className='text-2xl pt-4 font-bold pl-1'>Licensed Technician</h1>
+                <div className="pt-1">
+                <h1 className='text-2xl pt-4 font-bold pl-1 text-center'>Licensed Technician</h1>
                 <p className='pl-2'>Mauris augue neque gravida in fermentum et sollicitudin.</p>
                 </div>
                 
               </div>
-              <div className="w-[270px] flex flex-col items-center pl-5">
+              <div className="w-[270px] flex flex-col items-center pl-5 ">
                 <div>
                   <img src={icons.star}
                   className='h-[63px]] w-[68px] pt-4'
                   alt="" />
                 </div>                
-                <div className="pt-4">
+                <div className="pt-1">
                 <h1 className='text-2xl pt-4 font-bold'>Top Rated Service</h1>
                 <p>Mauris augue neque gravida in fermentum et sollicitudin.</p>
                 </div>
@@ -762,7 +762,7 @@ useEffect(() =>
                   className='h-[63px]] w-[68px] pt-4'
                   alt="" />
                 </div>                
-                <div className="pt-4">
+                <div className="pt-1">
                 <h1 className='text-2xl pt-4 font-bold'>Timely Services</h1>
                 <p>Mauris augue neque gravida in fermentum et sollicitudin.</p>
                 </div>
@@ -1286,11 +1286,12 @@ useEffect(() =>
       </div>
 
       {/* bottom footer */}
-      <div className="p-7 pt-7 border-t-2 border-white w-full">
+      <div className="p-7 pt-7 border-t-2 border-white w-full bg-blue-950 ">
         <div className='flex justify-between'>
           <p>© WedesignTech All rights Reserved.</p>
           <p>Privacy Policy -
           Terms & Condition</p>
+
         </div>
       </div>
     </section>
