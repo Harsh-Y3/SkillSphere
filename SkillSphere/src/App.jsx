@@ -1228,7 +1228,7 @@ useEffect(() =>
   <div className="">
     <section className=' bg-blue-950  text-white bg-opacity-40 pt-10'>
       
-      <div className="flex justify-evenly ">
+      <div className="flex justify-evenly pb-10">
         <div className="">
           <img 
           className='w-[300px] h-[150px] bg-white mix-blend-lighten mt-[-44px]'
@@ -1283,6 +1283,15 @@ useEffect(() =>
           <h1 className='text-yellow-400 font-semibold text-2xl'>Our Pyment Methods</h1>
         </div>
 
+      </div>
+
+      {/* bottom footer */}
+      <div className="p-7 pt-7 border-t-2 border-white w-full">
+        <div className='flex justify-between'>
+          <p>© WedesignTech All rights Reserved.</p>
+          <p>Privacy Policy -
+          Terms & Condition</p>
+        </div>
       </div>
     </section>
   </div>
