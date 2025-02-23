@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { div, image, li } from 'framer-motion/client'
 import beforeAfterImg from './assets/beforeAfter'
 import contactWorkerBg from './assets/ContactWorkerBg.jpg'
-import { FaReact } from 'react-icons/fa6'
+import logoBg from './assets/logoBg.jpg'
 
 
 function App() {
@@ -228,7 +228,7 @@ useEffect(() =>
   return (
     <div className=' overflow-hidden z-20 m-0 p-0 '> 
       {/* hereo uncle, header */}
-        <div className='relative h-screen w-full text-white'>
+        <div className=' h-screen w-full text-white '>
         <div className="absolute inset-0">
             <video 
             className=" fixed -z-20  top-0 left-0 w-full h-full object-cover" 
@@ -241,20 +241,20 @@ useEffect(() =>
            
           </video>
         </div>
-        <nav className="absolute top-[-50px] left-0 right-0 flex justify-between items-center p-4  bg-opacity-70">
-          <div className="flex items-center space-x-2">
+        <nav className="absolute top-[-50px] left-0 right-0 h-36 flex justify-between items-center p-4 bg-blue-950 bg-opacity-40">
+          <div className="flex pt-10 items-center space-x-2">
             <div className="text-yellow-500 text-2xl font-bold flex items-center">
             <img src={logo} alt="Logo" className="w-[250px] h-[150px] border-s-6 rounded-full mix-blend-lighten "/>
             </div>
           </div>
-          <ul className="hidden md:flex space-x-6 text-lg gap-10" >
+          <ul className="hidden md:flex space-x-6 text-lg gap-10 pt-10" >
             <li className="hover:text-yellow-500 cursor-pointer">Home</li>
             <li className="hover:text-yellow-500 cursor-pointer">About Us</li>
             <li className="hover:text-yellow-500 cursor-pointer">Shop</li>
             <li className="hover:text-yellow-500 cursor-pointer">Blogs</li>
             <li className="hover:text-yellow-500 cursor-pointer">Contact</li>
           </ul>
-          <button className="bg-blue-100 text-black px-4 py-2 rounded-lg hover:bg-blue-500 hover:text-black transition duration-300">
+          <button className="bg-blue-100 text-black px-4 h-10 mt-10 rounded-lg hover:bg-blue-500 hover:text-black transition duration-300">
             Get A Quote
           </button>
         </nav>
@@ -1226,22 +1226,61 @@ useEffect(() =>
         
   {/* Links */}
   <div className="">
-    <section className='bg-green-200 flex justify-around- text-white'>
-      <div className="">
+    <section className=' bg-blue-950  text-white bg-opacity-40 pt-10'>
+      
+      <div className="flex justify-evenly ">
         <div className="">
           <img 
-          className='w-[250px] h-[150px] border-s-6 rounded-full mix-blend-lighten'
-          src={logo} alt="" />
+          className='w-[300px] h-[150px] bg-white mix-blend-lighten mt-[-44px]'
+          src={logoBg} alt="" />
           <p>
-          Duis ultricies libero sit amet aliquam fermentum. Nunc tincidunt mollis dui in tempor
+          Duis ultricies libero sit amet aliquam fermentum. <br /> Nunc tincidunt mollis dui <br /> in tempor
           </p>
-          <div className="flex">
-            <img src={icons.mail}
+          <div className="flex pt-7 gap-5">
+            <img src="   https://cdn-icons-png.flaticon.com/512/2370/2370279.png "
              alt=""
-             className='w-[250px] h-[150px]' />
-             <p>Monday-Saturday</p>
-             <p>9.00 Am - 9.00 Pm</p>
+             className='h-16 w-16 text-white hover:text-yellow-400 ' />
+             <p className='pt-2'>Monday-Saturday <br /> 9.00 Am - 9.00 Pm</p> 
+             
           </div>
+        </div>
+        <div className="">
+          <h1 className='text-yellow-400 font-semibold text-2xl'>Information</h1>
+          <ul className='pt-5'>
+            <li className='my-3'>Request Service</li>            
+            <li className='my-3'>Our Work</li>
+            <li className='my-3'>What We Do</li>
+            <li className='my-3'>Our Process</li>
+            <li className='my-3'>Reviews</li>
+          </ul>
+        </div>
+        <div className="">
+          <h1 className='text-yellow-400 font-semibold text-2xl'>Support</h1>
+          <ul className='pt-5' >
+            <li className='my-3'>About</li>
+            <li className='my-3'>Careear</li>
+            <li className='my-3'>Privacy Policy</li>
+            <li className='my-3'>Term of Use</li>
+            <li className='my-3'>Contact</li>
+           
+          </ul>
+        </div>
+        <div className="">
+          <h1 className='text-yellow-400 font-semibold text-2xl'>Quick Contact</h1>
+          <div className=' flex flex-row pt-3'>
+            <img
+            className='bg-yellow-400 rounded-full h-10 w-10 mt-4'
+            src="https://img.icons8.com/?size=100&id=85049&format=png&color=000000" alt="" />
+          <p className='pt-3 ml-3' >Silver Oak Univercity, Gota, <br /> Ahmedabad, 382405</p>
+          </div>
+          <div className='flex flex-row pt-3'>
+            <img src={icons.call} className='h-10 w-10 mt-4 ' alt="" />
+            <p className='my-3 ml-3'>+91 998982435 <br /> contact@skillsphere.com</p>
+            <p></p>
+          </div>
+        </div>
+        <div className="">
+          <h1 className='text-yellow-400 font-semibold text-2xl'>Our Pyment Methods</h1>
         </div>
 
       </div>
@@ -1253,8 +1292,8 @@ useEffect(() =>
 </div>
 
      
-    )
-  }
+  )
+}
  
 
 export default App;

@@ -12,7 +12,7 @@ import license from './license.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
-import { faCoffee, faHome, faHeart, faScrewdriver, faPlug, faHammer, faShower, faFireBurner, faDoorOpen, faHouse, faPaintRoller, faCalendarDays, faX, faCopyright, faLocationDot, faSquareEnvelope, faEnvelope, faCalendarTimes } from '@fortawesome/free-solid-svg-icons';
+import { faCoffee, faHome, faHeart, faScrewdriver, faPlug, faHammer, faShower, faFireBurner, faDoorOpen, faHouse, faPaintRoller,} from '@fortawesome/free-solid-svg-icons';
 
 const icons = 
 {
@@ -36,7 +36,6 @@ const icons =
     house: faHouse,
     paint: faPaintRoller,
     
-
 }
 
 
