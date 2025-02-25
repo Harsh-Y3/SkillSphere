@@ -721,10 +721,10 @@ useEffect(() =>
             </motion.form>
             </div>
             <motion.div 
-            initial={{ opacity: 0,  y:50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}
+            initial={{ opacity: 0,  y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}
             
             className="mt-[60px] bg-gray-100 w-[1000px] h-[256px] flex flex-row rounded-[30px]  ">
-              <div className="flex flex-col  items-center bg-yellow-400 rounded-[30px] w-72 pt-4  ">
+              <div className="flex flex-col  items-center bg-yellow-400 rounded-[30px] w-72 pt-3  ">
                 <p className='text-xl pt-3 font-semibold'>People Trust</p>
                 <h1 className='text-3xl pt-4 font-bold'>Why We 
                   <br />
