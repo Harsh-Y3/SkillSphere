@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 
 export default function Login() {
 
+  
   const [isActive, setIsActive] = useState();
   const [formData, setFormData] = useState({});
   const handleChange = (e) => {
@@ -12,13 +13,32 @@ export default function Login() {
       [e.target.id]: e.target.value,
     })
   }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const res = await fetch('/api/auth/signup', 
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      }
+    );
+    const data = await res.json();
+    console.log(data);
+  }
 console.log(formData);
 
   return (
     <div>
       <div>
         <div className="flex items-center justify-center min-h-screen bg-gradient-to-t from-yellow-700 to-blue-950">
-      <div className={`relative w-[768px] min-h-[480px] bg-white rounded-2xl shadow-lg overflow-hidden ${isActive ? "active" : ""}`}>
+          
+      <form 
+      onSubmit={handleSubmit}
+      
+      className={`relative w-[768px] min-h-[480px] bg-white rounded-2xl shadow-lg overflow-hidden ${isActive ? "active" : ""}`}>
 
         {/* Sign Up Form */}
         <div className={`absolute top-0 left-0 w-1/2 h-full flex flex-col items-center justify-center p-10 transition-all duration-500 ${isActive ? "translate-x-full opacity-100 z-10" : "opacity-0 z-1"}`}>
@@ -49,7 +69,10 @@ console.log(formData);
           <input type="email" placeholder="Email" className="w-full p-2 my-2 bg-gray-100 rounded-lg" />
           <input type="password" placeholder="Password" className="w-full p-2 my-2 bg-gray-100 rounded-lg" />
           <a href="#" className="text-sm text-gray-500">Forgot Your Password?</a>
-          <button className="mt-3 px-6 py-2 bg-blue-600 text-white rounded-lg">Sign In</button>
+          <button
+          
+          type='submit'
+          className="mt-3 px-6 py-2 bg-blue-600 text-white rounded-lg">Sign In</button>
         </div>
 
         {/* Toggle Section */}
@@ -57,15 +80,16 @@ console.log(formData);
           <div className="h-full bg-gradient-to-r from-blue-500 to-blue-700 text-white flex flex-col items-center justify-center p-10">
             <h1 className="text-2xl font-bold">{isActive ? "Hello, Friend!" : "Welcome Back!"}</h1>
             <p className="text-sm mt-2">{isActive ? "Register to use all site features" : "Sign in to use all site features"}</p>
-            <button
-              className="mt-5 px-6 py-2 bg-transparent border border-white rounded-lg"
+            <div
+              className="mt-5 px-6 py-2 bg-transparent border border-white rounded-lg cursor-pointer"
               onClick={() => setIsActive(!isActive)}
             >
               {isActive ? "Sign In" : "Sign Up"}
-            </button>
+            </div>
           </div>
         </div>
-      </div>
+      </form>
+      
     </div>
     </div>
     </div>
