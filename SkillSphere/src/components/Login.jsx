@@ -4,6 +4,15 @@ import React, { useState } from 'react'
 export default function Login() {
 
   const [isActive, setIsActive] = useState();
+  const [formData, setFormData] = useState({});
+  const handleChange = (e) => {
+    setFormData
+    ({
+      ...formData,
+      [e.target.id]: e.target.value,
+    })
+  }
+console.log(formData);
 
   return (
     <div>
@@ -21,9 +30,9 @@ export default function Login() {
             <a href="#" className="p-2 bg-gray-200 rounded-full"><i className="fab fa-linkedin-in"></i></a>
           </div>
           <span className="text-xs">or use your email for registration</span>
-          <input type="text" placeholder="Name" className="w-full p-2 my-2 bg-gray-100 rounded-lg" />
-          <input type="email" placeholder="Email" className="w-full p-2 my-2 bg-gray-100 rounded-lg" />
-          <input type="password" placeholder="Password" className="w-full p-2 my-2 bg-gray-100 rounded-lg" />
+          <input type="text" placeholder="Name" className="w-full p-2 my-2 bg-gray-100 rounded-lg" id='username'  onChange={handleChange}/>
+          <input type="email" placeholder="Email" className="w-full p-2 my-2 bg-gray-100 rounded-lg" id='email' onChange={handleChange}/>
+          <input type="password" placeholder="Password" className="w-full p-2 my-2 bg-gray-100 rounded-lg" id='password' onChange={handleChange}/>
           <button className="mt-3 px-6 py-2 bg-blue-600 text-white rounded-lg">Sign Up</button>
         </div>
 
