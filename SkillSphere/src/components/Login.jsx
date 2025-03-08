@@ -6,6 +6,8 @@ export default function Login() {
   
   const [isActive, setIsActive] = useState();
   const [formData, setFormData] = useState({});
+  const [err, setErr] = useState(null);
+  const [load, setload] = useState(false);
   const handleChange = (e) => {
     setFormData
     ({
@@ -16,6 +18,7 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setload(true);
     const res = await fetch('/api/auth/signup', 
       {
         method: 'POST',
@@ -26,6 +29,13 @@ export default function Login() {
       }
     );
     const data = await res.json();
+    if (data.success === false) {
+      setload(false);
+      setErr(data.message);
+      
+      return;
+    }
+    setload(false);
     console.log(data);
   }
 console.log(formData);
@@ -70,9 +80,11 @@ console.log(formData);
           <input type="password" placeholder="Password" className="w-full p-2 my-2 bg-gray-100 rounded-lg" />
           <a href="#" className="text-sm text-gray-500">Forgot Your Password?</a>
           <button
-          
+          disabled={load}
           type='submit'
-          className="mt-3 px-6 py-2 bg-blue-600 text-white rounded-lg">Sign In</button>
+          className="mt-3 px-6 py-2 bg-blue-600 text-white rounded-lg">
+            {load ? 'Loading...' : 'Sign In'}
+          </button>
         </div>
 
         {/* Toggle Section */}
