@@ -1,109 +1,92 @@
 import { useScroll } from 'framer-motion'
 import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Login() {
-
-  
   const [isActive, setIsActive] = useState();
   const [formData, setFormData] = useState({});
-  const [err, setErr] = useState(null);
+  const [error, setError] = useState(null);
   const [load, setload] = useState(false);
+  const navigate = useNavigate();
   const handleChange = (e) => {
-    setFormData
-    ({
+    setFormData({
       ...formData,
       [e.target.id]: e.target.value,
-    })
+    });
   }
 
   const handleSubmit = async (e) => {
-    // e.preventDefault();
-    setload(true);
-    const res = await fetch('/api/auth/signup', 
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      }
-    );
+    e.preventDefault();
+    try {
+      setload(true);
+    const res = await fetch('/api/auth/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
     const data = await res.json();
     if (data.success === false) {
       setload(false);
-      setErr(data.message);
+      setError(data.message);
       
       return;
     }
     setload(false);
+    setError(null);
+    navigate('/signin');
     console.log(data);
+    } 
+    catch (error) 
+    {
+      setload(false);
+      setError(error.message);
+    }
+    
   }
-console.log(formData);
 
   return (
     <div>
       <div>
         <div className="flex items-center justify-center min-h-screen bg-gradient-to-t from-yellow-700 to-blue-950">
-          
-      <form 
-      onSubmit={handleSubmit}
-      
-      className={`relative w-[768px] min-h-[480px] bg-white rounded-2xl shadow-lg overflow-hidden ${isActive ? "active" : ""}`}>
-
-        {/* Sign Up Form */}
-        <div className={`absolute top-0 left-0 w-1/2 h-full flex flex-col items-center justify-center p-10 transition-all duration-500 ${isActive ? "translate-x-full opacity-100 z-10" : "opacity-0 z-1"}`}>
-          <h1 className="text-2xl font-bold">Create Account</h1>
-          <div className="flex space-x-3 my-3">
-            <a href="#" className="p-2 bg-gray-200 rounded-full"><i className="fab fa-google-plus-g"></i></a>
-            <a href="#" className="p-2 bg-gray-200 rounded-full"><i className="fab fa-facebook-f"></i></a>
-            <a href="#" className="p-2 bg-gray-200 rounded-full"><i className="fab fa-github"></i></a>
-            <a href="#" className="p-2 bg-gray-200 rounded-full"><i className="fab fa-linkedin-in"></i></a>
-          </div>
-          <span className="text-xs">or use your email for registration</span>
-          <input type="text" placeholder="Name" className="w-full p-2 my-2 bg-gray-100 rounded-lg" id='username'  onChange={handleChange}/>
-          <input type="email" placeholder="Email" className="w-full p-2 my-2 bg-gray-100 rounded-lg" id='email' onChange={handleChange}/>
-          <input type="password" placeholder="Password" className="w-full p-2 my-2 bg-gray-100 rounded-lg" id='password' onChange={handleChange}/>
-          <button className="mt-3 px-6 py-2 bg-blue-600 text-white rounded-lg">Sign Up</button>
-        </div>
-
-        {/* Sign In Form */}
-        <div className={`absolute top-0 left-0 w-1/2 h-full flex flex-col items-center justify-center p-10 transition-all duration-500 ${isActive ? "-translate-x-full opacity-0 z-1" : "opacity-100 z-10"}`}>
-          <h1 className="text-2xl font-bold">Sign In</h1>
-          <div className="flex space-x-3 my-3">
-            <a href="#" className="p-2 bg-gray-200 rounded-full"><i className="fab fa-google-plus-g"></i></a>
-            <a href="#" className="p-2 bg-gray-200 rounded-full"><i className="fab fa-facebook-f"></i></a>
-            <a href="#" className="p-2 bg-gray-200 rounded-full"><i className="fab fa-github"></i></a>
-            <a href="#" className="p-2 bg-gray-200 rounded-full"><i className="fab fa-linkedin-in"></i></a>
-          </div>
-          <span className="text-xs">or use your email password</span>
-          <input type="email" placeholder="Email" className="w-full p-2 my-2 bg-gray-100 rounded-lg" />
-          <input type="password" placeholder="Password" className="w-full p-2 my-2 bg-gray-100 rounded-lg" />
-          <a href="#" className="text-sm text-gray-500">Forgot Your Password?</a>
-          <button
-          disabled={load}
-          type='submit'
-          className="mt-3 px-6 py-2 bg-blue-600 text-white rounded-lg">
-            {load ? 'Loading...' : 'Sign In'}
-          </button>
-        </div>
-
-        {/* Toggle Section */}
-        <div className={`absolute top-0 left-1/2 w-1/2 h-full transition-all duration-500 ${isActive ? "-translate-x-full" : ""}`}>
-          <div className="h-full bg-gradient-to-r from-blue-500 to-blue-700 text-white flex flex-col items-center justify-center p-10">
-            <h1 className="text-2xl font-bold">{isActive ? "Hello, Friend!" : "Welcome Back!"}</h1>
-            <p className="text-sm mt-2">{isActive ? "Register to use all site features" : "Sign in to use all site features"}</p>
-            <div
-              className="mt-5 px-6 py-2 bg-transparent border border-white rounded-lg cursor-pointer"
-              onClick={() => setIsActive(!isActive)}
-            >
-              {isActive ? "Sign In" : "Sign Up"}
+          <form onSubmit={handleSubmit} className={`relative w-[768px] min-h-[480px] bg-white rounded-2xl shadow-lg overflow-hidden flex`}>
+            {/* left content */}
+            <div className='bg-h-full bg-gradient-to-r from-blue-500 to-blue-700 w-[50%] text-white flex flex-col items-center justify-center p-10'>
+              <h1 className='text-2xl font-bold'>Hello Friend!</h1>
+              <p className='text-sm mt-2'>Already Have Account SignIn</p>
+              <Link to={'/signin'}>
+                <div className='mt-5 px-6 py-2 bg-transparent border border-white rounded-lg cursor-pointer'>
+                  SignUp
+                </div>
+              </Link>
             </div>
-          </div>
+
+            {/* right content */}
+            <div className='top-0 left-0 w-1/2 h-full flex flex-col items-center justify-center p-10'>
+              <h1 className='text-2xl font-bold'>Sign Up</h1>
+              <input
+              onChange={handleChange}
+               type="text" placeholder='User Name' id='username' className='w-full p-2 my-2 bg-gray-100 rounded-lg' />
+              <input 
+              onChange={handleChange}
+              type="email" placeholder='E-mail' id='email' className='w-full p-2 my-2 bg-gray-100 rounded-lg' />
+              <input 
+              onChange={handleChange}
+              type="password" placeholder='Password' id='password' className='w-full p-2 my-2 bg-gray-100 rounded-lg' />
+              <button disabled={load} type='submit' className="mt-3 px-6 py-2 bg-blue-600 text-white rounded-lg">
+                {load ? 'Loading...' : 'Sign Up'}
+              </button>
+              {error && <div className='absolut pt-3 text-red-500 text-center'>{error}</div>}
+            </div>
+            
+          </form>
+          
         </div>
-      </form>
-      
-    </div>
-    </div>
+       
+
+      </div>
+     
     </div>
   )
 }

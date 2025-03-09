@@ -2,6 +2,7 @@ import { b } from 'framer-motion/client';
 import User from '../models/user.model.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import { errorHandler } from '../utils/error.js';
 export const signup = async (req, res, next) => 
     {
         const { username, email, password } = req.body;
@@ -15,7 +16,7 @@ export const signup = async (req, res, next) =>
         catch(error)
         
         {
-            next(error);
+            next(errorHandler(550, 'Error from a function'));
         }
     };
 
