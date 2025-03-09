@@ -57,7 +57,7 @@ export default function Login() {
               <p className='text-sm mt-2'>Already Have Account SignIn</p>
               <Link to={'/signin'}>
                 <div className='mt-5 px-6 py-2 bg-transparent border border-white rounded-lg cursor-pointer'>
-                  SignUp
+                  Sign-In
                 </div>
               </Link>
             </div>
@@ -75,7 +75,7 @@ export default function Login() {
               onChange={handleChange}
               type="password" placeholder='Password' id='password' className='w-full p-2 my-2 bg-gray-100 rounded-lg' />
               <button disabled={load} type='submit' className="mt-3 px-6 py-2 bg-blue-600 text-white rounded-lg">
-                {load ? 'Loading...' : 'Sign Up'}
+                {load ? 'Loading...' : 'Sign-Up'}
               </button>
               {error && <div className='absolut pt-3 text-red-500 text-center'>{error}</div>}
             </div>

@@ -1,49 +1,52 @@
 import React from 'react'
 import { useState } from 'react';
-import { Navigate,Link } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 
 export default function Signin() {
-    const [isActive, setIsActive] = useState();
+     const [isActive, setIsActive] = useState();
       const [formData, setFormData] = useState({});
       const [error, setError] = useState(null);
       const [load, setload] = useState(false);
+      const navigate = useNavigate();
       const handleChange = (e) => {
-        setFormData
-        ({
+        setFormData({
           ...formData,
           [e.target.id]: e.target.value,
-        })
+        });
       }
     
       const handleSubmit = async (e) => {
-          e.preventDefault();
-          try {
-            setload(true);
-          const res = await fetch('/api/auth/signup', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-          });
-          const data = await res.json();
-          if (data.success === false) {
-            setload(false);
-            setError(data.message);
-            Navigate('/signin');
-            return;
-          }
+        e.preventDefault();
+        try {
+          setload(true);
+        const res = await fetch('/api/auth/signin', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+        const data = await res.json();
+        if (data.success === false) {
           setload(false);
-          setError(null)
-          console.log(data);
-          } 
-          catch (error) 
-          {
-            setload(false);
-            setError(error.message);
-          }
+          setError(data.message);
           
+          return;
         }
+        setload(false);
+        setError(null);
+        navigate('/');
+        console.log(data);
+        } 
+        catch (error) 
+        {
+          setload(false);
+          setError(error.message);
+        }
+        
+      }
+    
+
   return (
     <div>
       <div>
@@ -68,11 +71,11 @@ export default function Signin() {
           </div>
           
           <input 
-          onChange={handleSubmit}
-          type="email" placeholder="Email" className="w-full p-2 my-2 bg-gray-100 rounded-lg" />
+          onChange={handleChange}
+          type="email" placeholder="Email" className="w-full p-2 my-2 bg-gray-100 rounded-lg" id='email' />
           <input 
-          onChange={handleSubmit}
-          type="password" placeholder="Password" className="w-full p-2 my-2 bg-gray-100 rounded-lg" />
+          onChange={handleChange}
+          type="password" placeholder="Password" className="w-full p-2 my-2 bg-gray-100 rounded-lg" id='password' />
           <a href="#" className="text-sm text-gray-500">Forgot Your Password?</a>
           <button
           disabled={load}
