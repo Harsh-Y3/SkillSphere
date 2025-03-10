@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 export default function Header() {
   return (
     <div>
-        <nav className="z-10 absolute top-[-50px] left-0 right-0 h-36 flex justify-between items-center p-4 bg-blue-950 bg-opacity-40">
+        <nav className="z-10 fixed top-[-50px] left-0 right-0 h-36 flex justify-between items-center p-4 bg-blue-950 bg-opacity-40 ">
           <div className="flex pt-10 items-center space-x-2">
             <div className="text-yellow-500 text-2xl font-bold flex items-center">
             <img src={logo} alt="Logo" className="w-[250px] h-[150px] border-s-6 rounded-full "/>

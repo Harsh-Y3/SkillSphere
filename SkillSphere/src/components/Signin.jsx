@@ -83,6 +83,7 @@ export default function Signin() {
           className="mt-3 px-6 py-2 bg-blue-600 text-white rounded-lg">
             {load ? 'Loading...' : 'Sign In'}
           </button>
+          {error && <div className='absolut pt-3 text-red-500 text-center'>{error}</div>}
         </div>
 
         {/* Right Section */}
@@ -100,8 +101,10 @@ export default function Signin() {
               SignIn
             </div>
             </Link>
+           
           </div>
         </div>
+       
       </form>
       
     </div>
