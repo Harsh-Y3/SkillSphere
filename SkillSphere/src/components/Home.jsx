@@ -230,7 +230,7 @@ useEffect(() =>
 
 
   return (
-    <div className=' overflow-hidden z-20 m-0 p-0 font-serif '> 
+    <div className=' overflow-hidden z-20 m-0 p-0 font-serif scroll-smooth '> 
     
       {/* hereo uncle, header */} 
         <div className=' h-screen w-full text-white '> 
@@ -249,7 +249,7 @@ useEffect(() =>
         </div>
         
         
-        <motion.div className=" absolute inset-0 flex flex-col justify-center items-start px-12 max-w-2xl "
+        <motion.div id='home' className=" absolute inset-0 flex flex-col justify-center items-start px-12 max-w-2xl "
           >
           <motion.p 
           initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }} viewport={{ once: true }}
@@ -270,7 +270,7 @@ useEffect(() =>
         </div>
         
       {/* about hu */}
-      <div className="flex justify-center bg-blue-100 h-full pt-10 pb-[100px]  rounded-t-none rounded-b-full rounded-r-none rounded-l-none">
+      <div id='about' className="flex justify-center bg-blue-100 h-full pt-10 pb-[100px]  rounded-t-none rounded-b-full rounded-r-none rounded-l-none">
       <div className="relative rounded-lg">
       <motion.h2 className="text-center text-5xl font-semibold mb-6 pb-10"
       initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}
@@ -481,7 +481,7 @@ useEffect(() =>
         
 
       {/* our service main div */}
-      <div className="pt-[100px] bg-blue-100 pb-[100px]"> 
+      <div id='service' className="pt-[100px] bg-blue-100 pb-[100px]"> 
 
         <div className="text-center">
           <motion.h1 
@@ -634,8 +634,8 @@ useEffect(() =>
         </div>
       </div>
 
-      {/* get a quate form */}
-      <div className=''>
+      {/* get a qu0te form */}
+      <div id='quote' className=''>
         <section className='bg-white pt-10 flex justify-center  '>
           <div className='flex'>
           <div className=' bg-white  w-[1280px] h-[735px] flex flex-row'>
@@ -783,7 +783,7 @@ useEffect(() =>
 
       {/* our work section */}
 
-      <div>
+      <div id='work'>
         <section className=' bg-blue-400'>
           <div className='flex flex-row mx-40 py-10 '>
             <div className='w-[587px] h-[163px]'>
@@ -1042,10 +1042,7 @@ useEffect(() =>
                 <p className="text-gray-500 text-sm font-bold">{reviews[activeReview].role}</p>
               </div>
             </div>
-
-        
-        
-          
+         
           {/* previous review button and next review button */}
           <div className="mt-6   space-x-4 pt-7">
         {reviews.map((_, index) => (
@@ -1062,25 +1059,18 @@ useEffect(() =>
       </div>
       </motion.div>
         </div>
-        
-
-
-
-
-
-              
-
+ 
       </div>
 
     </section>
   </div>
 
  {/* contact form */}
- <div>
-  <section className=' bg-gradient-to-t from-yellow-300 to-white pt-[300px] pb-[100px]'>
+ <div >
+  <section  className=' bg-gradient-to-t from-yellow-300 to-white pt-[300px] pb-[100px]'>
     <div className='flex flex-row  justify-around'>
       {/* left content */}
-      <div className='pt-20 pl-10' >
+      <div className='pt-20 pl-10' id='contact' >
         <div className='flex flex-col'>
         <img 
         className='h-50 w-50 rounded-3xl w-[555px] h-[740px]'
