@@ -4,7 +4,6 @@ import {delay, motion} from 'framer-motion'
 import icons from '../assets/assets'
 import background from '../assets/background-vid-skillsphere.mp4'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { div, image, li } from 'framer-motion/client'
 import beforeAfterImg from '../assets/beforeAfter'
 import contactWorkerBg from '../assets/ContactWorkerBg.jpg'
 import logoBg from '../assets/logoBg.jpg'
@@ -249,22 +248,22 @@ useEffect(() =>
         </div>
         
         
-        <motion.div id='home' className=" absolute inset-0 flex flex-col justify-center items-start px-12 max-w-2xl "
+        <motion.div id='home' className=" absolute inset-0 flex flex-col justify-center items-start px-12 max-w-2xl backdrop-blur-lg"
           >
           <motion.p 
           initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }} viewport={{ once: true }}
           className="text-sm uppercase tracking-wide">Let's Get To Work</motion.p>
           <motion.h1 
           initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.2 }} viewport={{ once: true }}
-          className="text-5xl font-bold mt-2 leading-tight">Honest, Trustworthy, And Does Good Work.</motion.h1>
+          className="text-5xl font-bold mt-2 leading-tight text-blue-200"><span className='text-yellow-500'>Honest,  Trustworthy, </span> And Does <span className='text-yellow-500'>Good Work.</span></motion.h1>
           <motion.p 
           initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.3 }} viewport={{ once: true }}
-          className="mt-4 text-lg text-white">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum soluta quas quisquam minus cupiditate perferendis, voluptatem illum consequuntur itaque quo.</motion.p>
+          className="mt-4 text-lg">We specialize in delivering top-notch solutions for all your needs, whether is's samllfix or a major project, we're here to help</motion.p>
           <motion.div 
           initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} viewport={{ once: true }}
           className="mt-6 flex space-x-4">
-            <button className="bg-blue-100 text-black px-4 py-2 rounded-lg hover:bg-blue-500 hover:text-black transition duration-300">Get A Quote</button>
-            <button className="bg-blue-100 text-black hover:bg-blue-500 hover:text-black transition duration-300 px-6 py-3 rounded-lg">Click here</button>
+            <button className="bg-blue-100 text-black px-4 py-2 rounded-lg hover:bg-blue-500 hover:text-black transition duration-300">Find talent</button>
+            <button className="bg-blue-100 text-black hover:bg-blue-500 hover:text-black transition duration-300 px-6 py-3 rounded-lg">Browse jobs</button>
           </motion.div>
         </motion.div>
         </div>
@@ -335,8 +334,8 @@ useEffect(() =>
           initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5,  }} viewport={{ once: true }}>
             {/* heading */}
             <h3 className=''>24/7 hassle-free </h3>
-            <h1 className='text-5xl font-bold'>home and businesses  </h1>
-            <h1 className='text-5xl font-bold'>installation and Services</h1>
+            <h1 className='text-5xl font-bold'>Up your work game,   </h1>
+            <h1 className='text-5xl font-bold'>it’s easy</h1>
             {/* photo */}
             <motion.div className="!sticky top-0 "
             initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.3  }} viewport={{ once: true }}>
@@ -389,7 +388,7 @@ useEffect(() =>
             
               <motion.p className='pl-3'
               initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5,  }} viewport={{ once: true }}
-              >Imperdiet massa tincidunt nunc pulvinar sapien. Sit amet facilisis magna etiam odio mollis mollis. Integer lacus ligula, imperdiet vel massa in, maximus suscipit turpis. Mauris ac risus sed quam semper auctor. Nam tempus volutpat ipsum, non viverra</motion.p>
+              >Unlock your potential and find perfect telent or project. JOin a community of skilled Professionals and businesses ready to collaborate</motion.p>
             </div>
             <motion.div className="pt-20  group-hover:scale-110 trabnsition-all duration-300"
              initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.3 }} viewport={{ once: true }}
@@ -402,8 +401,8 @@ useEffect(() =>
                     <img src={icons.worker} alt="" className='w-[120px] h-[60px]  bg-blue-200 rounded-full  hover:bg-blue-500 hover:scale-110 hover: transition-all duration-300'/>
                   </div>
                   <div className='pl-4'>
-                    <h1 className='font-bold text-xl ml-2'>Earliest Consultation</h1>
-                    <p className='text-l pl-2 pt-5'>Felis bibendum ut tristique et egestas quis ipsum suspendisse ultrices. Aenean vel elit scelerisque mauris pellentesque consectetur adipiscing elitpulvinar.</p>
+                    <h1 className='font-bold text-xl ml-2'>Post a job and hire top talent</h1>
+                    <p className='text-l pl-2 pt-5'>Find the perfect candidate for your project. Post a job todaty and connect with skilled freelancers ready to deliver.</p>
                   </div>
                
                 </motion.div>
@@ -419,7 +418,7 @@ useEffect(() =>
                   </div>
                   <div className='pl-4'>
                    <h1 className='font-bold text-xl ml-2'>Customized Solution</h1>
-                   <p className='text-l pl-2 pt-5'>Augue interdum velit euismod in pellentesque massa placerat duis ultricies. Purus gravida quis blandit turpis. Dolor sit amet consectetur adipiscing elit.</p>
+                   <p className='text-l pl-2 pt-5'>Flexible solutions for every project. We adapt to your needs, ensuring a seamless and Successful collaboration.</p>
                   </div>
                
                 </motion.div>
@@ -433,8 +432,8 @@ useEffect(() =>
                    <motion.img src={icons.money} alt="" className='w-[120px] h-[60px] bg-blue-200 rounded-full  hover:bg-blue-500 hover:scale-110 hover: transition-all duration-300'/>
                   </div>
                   <div className='pl-4'>
-                    <h1 className='font-bold text-xl ml-2'>Affordable Pricing</h1>
-                    <p className='text-l pl-2 pt-5'>Quis vel eros donec ac odio tempor. Praesent semper feugiat nibh sed pulvinar proin gravida hendrerit.Suspendisse interdum consectetur.</p>
+                    <h1 className='font-bold text-xl ml-2'>No cost to join</h1>
+                    <p className='text-l pl-2 pt-5'>Get started for free and explore the world of opportunities. Join our community without any upfront costs. </p>
                   </div>
                
                 </motion.div>
@@ -449,7 +448,7 @@ useEffect(() =>
                   </div>
                   <div className='pl-4'>
                     <h1 className='font-bold text-xl ml-2'>All-In-One Service</h1>
-                    <p className='text-l pl-2 pt-5'>Pellentesque id nibh tortor id. Quis vel eros donec ac odio tempor orci. Tristique sollicitudin nibh sit amet commodo nulla facilisi nullam.</p>
+                    <p className='text-l pl-2 pt-5'>Simplify your freelancing experiance with our comprehnsive platform. We provide all the tools you need to succeed</p>
                   </div>
                
                 </motion.div>
@@ -459,14 +458,14 @@ useEffect(() =>
              <motion.div
              initial={{ opacity: 0, translateZ: 50 }} whileInView={{ opacity: 1, translateZ: 0 }} transition={{ duration: 0.5,  }} viewport={{ once: true }}
              className="flex pt-20">
-              <button className='border rounded-full bg-red-950 w-[122px] h-[50px] text-white text-xl'>Read More</button>
+              <button className='border rounded-full bg-red-950 w-[130px] h-[50px] hover:bg-blue-300 transition-transform duration-100 hover:text-black text-white text-xl'>SignUp Now</button>
               <div className="pl-[50px] flex">
                 <div>
                   <img src={icons.call} alt="" className='w-12 h-12 pt-1'/>
                 </div>
                   <div className=' font-bold pl-4 '>
                     <p>contact</p>
-                    <p>7228833817</p>
+                    <p>+91 9834756210</p>
                   </div>
               </div>
              </motion.div>
@@ -691,7 +690,8 @@ useEffect(() =>
                 />
                 <input 
                 className={` appearance-none border-2 bg-blue-100 h-10 border-red-50 rounded-xl p-4 invalid:border-red-500   valid:border-green-400 `}
-                type="datetime-local"
+                type="date"
+                defaultValue={new Date().toISOString().split('T')[0]}
                 required
                 />
                 <button
@@ -703,9 +703,7 @@ useEffect(() =>
                 className={` appearance-none resize-none bg-blue-100  rounded-xl pl-4 pt-4 pr-2 pb-3 col-span-2 h-24  invalid:border-red-500   valid:border-green-400 `}
                 type="text" 
                 placeholder='Description' 
-                minLength="20"
-                rows='4'
-                required
+                rows="4"
                 />
              
             </motion.form>
