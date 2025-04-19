@@ -283,7 +283,7 @@ useEffect(() =>
           >
           <motion.p 
           initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }} viewport={{ once: true }}
-          className="text-sm uppercase tracking-wide">Let's Get To Work</motion.p>
+          // className="text-sm uppercase tracking-wide">Let's Get To Work</motion.p>
           <motion.h1 
           initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.2 }} viewport={{ once: true }}
           className="text-5xl font-bold mt-2 leading-tight text-blue-200"><span className='text-yellow-500'>Honest,  Trustworthy, </span> And Does <span className='text-yellow-500'>Good Work.</span></motion.h1>
