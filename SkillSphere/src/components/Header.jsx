@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from '../assets/Logo.jpg'
+import LogoBg from '../assets/LogoBg.png'
 import { Link } from 'react-router-dom'
 
 export default function Header() {
@@ -8,7 +9,7 @@ export default function Header() {
         <nav className="z-10 fixed top-[-50px] left-0 right-0 h-36 flex justify-between items-center p-4 bg-blue-950 bg-opacity-40 scroll-smooth ">
           <div className="flex pt-10 items-center space-x-2">
             <div className="text-yellow-500 text-2xl font-bold flex items-center">
-            <img src={logo} alt="Logo" className="w-[250px] h-[150px] border-s-6 rounded-full "/>
+            <img src={LogoBg} alt="Logo" className="w-[250px] h-[150px] border-s-6 rounded-full "/>
             </div>
           </div>
           <ul className="hidden md:flex space-x-6 text-lg gap-10 pt-10" >

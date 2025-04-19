@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import beforeAfterImg from '../assets/beforeAfter'
 import contactWorkerBg from '../assets/ContactWorkerBg.jpg'
 import logoBg from '../assets/logoBg.jpg'
+import LogoBg from '../assets/LogoBg.png'
 import { Link } from 'react-router-dom'
 import { BrowserRouter, createBrowserRouter, RouterProvider,Route, Routes } from 'react-router-dom'
 
@@ -23,7 +24,7 @@ function App() {
     {
       name: "Consolata Daria",
       role: "Entrepreneur",
-      text: "Donec volutpat ligula nec ipsum ultrices fringilla. Quisque vitae est turpis. Nulla sodales convallis mi, quis semper ante lacinia sit amet. Maecenas porta velit a justo commodo mattis at et magna. Cras auctor felis erat, sit amet imperdiet metus lacinia in.",
+      text: "Working with SkillSphere was smooth and professional. The freelancer delivered exactly what i needed on the time. Highly recommended!",
       rating: 5,
       image: "https://randomuser.me/api/portraits/women/44.jpg",
     },
@@ -67,17 +68,17 @@ function App() {
     {
       icon: icons.money,
       title: "Affordable Pricing",
-      description: "Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam.",
+      description: "Flexible pricing plans to match your budget and project needs.",
     },
     {
       icon: icons.license,
       title: "Licensed Technicians",
-      description: "Aldus Corporation, which later merged with Adobe Systems.",
+      description: "Verified freelancer with proven experties across industries.",
     },
     {
       icon: icons.star,
       title: "Top Rated Service",
-      description: "Lacinia quis vel eros donec. Ullamcorper a lacus vestibulum sed.",
+      description: "Trusted by clients for delivering high-quality work on time.",
     },
     {
       icon: icons.support,
@@ -200,6 +201,36 @@ const service =
   
 ]
 
+
+// whatsapp mesage
+const [formData, setFormData] = useState({
+  firstName: "",
+  lastName: "",
+  mobile: "",
+  email: "",
+  service: "",
+  date:"",
+  description: "",
+
+});
+
+const handleChange = (e) => {
+  setFormData({ ...formData, [e.target.name]: e.target.value });
+};
+
+const sendWhatsAppMessage = () => {
+  const { firstName, lastName, mobile, email, service, description, date } = formData;
+  const message = `Inquiry:\n\nName: ${firstName} ${lastName}\nMobile: ${mobile}\nEmail: ${email}\nService: ${service}\nDate: ${date}\nDescription: ${description}`;
+  const whatsappURL = `https://api.whatsapp.com/send?phone=7228833817&text=${encodeURIComponent(message)}`;
+  
+  window.open(whatsappURL, "_blank");
+};
+
+
+
+
+
+// select service
 const [selectedService, setSelectedService] = useState("");
 const [isOpen, setIsOpen] = useState(false);
 const [searchBar, setSearchBar] = useState("");
@@ -274,9 +305,9 @@ useEffect(() =>
       <motion.h2 className="text-center text-5xl font-semibold mb-6 pb-10"
       initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}
       >ABOUT US</motion.h2>
-      <motion.h1 className="text-center text-6xl font-bold pb-20"
+      <motion.h1 className="text-center text-4xl font-bold pb-20"
       initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 , deplay: 0.2}} viewport={{ once: true }}
-      >We Offer Plumbing Work Since 1967</motion.h1>
+      >Your One-Stop Platform for Hiring Trusted Freelancers</motion.h1>
 
       {/* Slider Content */}
       <div className="flex overflow-hidden">
@@ -509,6 +540,9 @@ useEffect(() =>
               </div>
             </motion.div>
 
+            <Link
+            to="/ourwork"
+            >
             <motion.div
             initial={{ opacity: 0,  translateZ:-50 }} whileInView={{ opacity: 1, translateZ: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}
             className="group">
@@ -525,6 +559,7 @@ useEffect(() =>
                 <p>Electrical Works</p>
               </div>
             </motion.div>
+            </Link>
 
             <motion.div 
             initial={{ opacity: 0,  translateZ:-50 }} whileInView={{ opacity: 1, translateZ: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}
@@ -661,7 +696,10 @@ useEffect(() =>
               
                 className={`appearance-none border-2 bg-blue-100 h-10 border-red-50 rounded-xl p-4 invalid:border-red-500   valid:border-green-400`}
                 type="text"
+                name='firstName'
                 placeholder='Name'
+                onChange={handleChange}
+              
                 minLength={3}
                 required
                 />
@@ -670,6 +708,8 @@ useEffect(() =>
                 className={` appearance-none border-2 bg-blue-100 h-10 border-red-50 rounded-xl p-4 invalid:border-red-500   valid:border-green-400 `}
                 type="email"
                 placeholder='email'
+                name='email'
+                onChange={handleChange}
                 required
 
                 /> 
@@ -677,32 +717,40 @@ useEffect(() =>
                 <input 
                 className={` appearance-none border-2 bg-blue-100 h-10 border-red-50 rounded-xl p-4 invalid:border-red-500   valid:border-green-400 `}
                 type="number"
+                name='mobile'
                 placeholder='Mobile Number'
                 minLength="10"
                 maxLength="10"
-                
+                onChange={handleChange}
                 required/>
                 <input 
                 className={` appearance-none border-2 bg-blue-100 h-10 border-red-50 rounded-xl p-4 invalid:border-red-500   valid:border-green-400 `}
                 type="text" 
                 placeholder='Select service'
+                name='service'
                 required
                 />
                 <input 
                 className={` appearance-none border-2 bg-blue-100 h-10 border-red-50 rounded-xl p-4 invalid:border-red-500   valid:border-green-400 `}
                 type="date"
+                name='date'
                 defaultValue={new Date().toISOString().split('T')[0]}
+                onChange={handleChange}
                 required
                 />
                 <button
                 type="submit"
                 placeholder='get qu'
                 className='bg-yellow-400 rounded-2xl '
+                onClick={sendWhatsAppMessage}
                 >Get A Quote </button> 
                 <textarea 
                 className={` appearance-none resize-none bg-blue-100  rounded-xl pl-4 pt-4 pr-2 pb-3 col-span-2 h-24  invalid:border-red-500   valid:border-green-400 `}
                 type="text" 
-                placeholder='Description' 
+                placeholder='Description'
+                name='description' 
+                onChange={handleChange}
+                // value={formData.message}
                 rows="4"
                 />
              
@@ -717,10 +765,10 @@ useEffect(() =>
                 <h1 className='text-3xl pt-4 font-bold'>Why We 
                   <br />
                   Are Best</h1>
-                <p className='pt-5 p-4'>Curabitur vitae nunc sed velit dignissim sodales ut eu. Leo vel orci porta non.
+                <p className='pt-5 p-4 text-center'>Skilled talent, Seamless experiance.
                 </p>
               </div>
-              <div className="w-[270px] flex flex-col items-center pl-5">
+              <div className="w-[270px] flex flex-col items-center pl-5 text-center">
                 <div>
                   <img src={icons.license}
                   className='h-[63px]] w-[68px] pt-4'
@@ -728,7 +776,7 @@ useEffect(() =>
                 </div>                
                 <div className="pt-1">
                 <h1 className='text-2xl pt-4 font-bold pl-1 text-center'>Licensed Technician</h1>
-                <p className='pl-2'>Mauris augue neque gravida in fermentum et sollicitudin.</p>
+                <p className='pl-2'>Verified freelancer with proven experties across industries.</p>
                 </div>
                 
               </div>
@@ -740,7 +788,7 @@ useEffect(() =>
                 </div>                
                 <div className="pt-1">
                 <h1 className='text-2xl pt-4 font-bold'>Top Rated Service</h1>
-                <p>Mauris augue neque gravida in fermentum et sollicitudin.</p>
+                <p>Trusted by clients for delivering high-quality work on time.</p>
                 </div>
                 
               </div>
@@ -752,7 +800,7 @@ useEffect(() =>
                 </div>                
                 <div className="pt-1">
                 <h1 className='text-2xl pt-4 font-bold'>Timely Services</h1>
-                <p>Mauris augue neque gravida in fermentum et sollicitudin.</p>
+                <p>On-Time, every time - because your time matters.</p>
                 </div>
                 
               </div>
@@ -789,7 +837,7 @@ useEffect(() =>
               <h1 className='text-5xl text-white font-bold'>safe and secure Plumbing, Electrical and Carpenter  Work</h1>
             </div>
             <div className='w-[368px] ml-20 border-l-2'>
-                <p className='text-white pl-10'>Egestas erat imperdiet sed euismod nisi porta lorem mollis. Nunc scelerisque viverra mauris in aliquam. Morbi non arcu risus quis.Libero enim sed faucibus turpis in eu mi. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium nibh.</p>
+                <p className='text-white pl-10 pt-10'>We prioritize your safety and satisfaction with every service. Our vetted Professionals ensure hassele-free, timely, and high-quality work.</p>
             </div>
           </div>
           <div className='flex flex-row justify-around w-[1020px] mx-[200px] gap-20 text-white '>
@@ -819,7 +867,7 @@ useEffect(() =>
               <h1 className='text-5xl font-bold pt-5'>We Use Finest ingredients</h1>
             </div>
             <div className='w-[368px] ml-20 border-l-2 border-blue-500'>
-                <p className='text-black pl-10'>Egestas erat imperdiet sed euismod nisi porta lorem mollis. Nunc scelerisque viverra mauris in aliquam. Morbi non arcu risus quis.Libero enim sed faucibus turpis in eu mi. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium nibh.</p>
+                <p className='text-black pl-10 pt-10'>We only use cerified, high-quality materials from from brands you trust to ensure lasting results and top-tier services</p>
             </div>
           </div>
           <main className="max-w-screen pl-[80px] bg-blue-300">
@@ -998,7 +1046,7 @@ useEffect(() =>
            whileInView={{ opacity: 1, x: 0 }}
            transition={{ duration: 0.5 }}
            viewport={{ once: true }}
-          className='pl-[70px] mt-4 border-l-4 border-yellow-500'>Sem viverra aliquet eget sit amet tellus cras. Scelerisque felis imperdiet proin fermentum leo vel orci.Tortor at auctor urna nunc id. Sit amet facilisis magna etiam odio mollis.</motion.div>
+          className='pl-[70px] mt-4 border-l-4 border-yellow-500 text-xl'>Real stories from real clients who trust SkillSphere for their freelance needs.</motion.div>
           
           </div>
           <div className="flex pt-8 "
@@ -1087,7 +1135,7 @@ useEffect(() =>
         <div>
         <p className='font-semibold text-3xl'>Get In Touch</p>
         <h1 className='font-bold text-5xl mt-5'>Effortless Booking with us</h1>
-        <h3 className='pt-3'>Habitasse platea dictumst quisque sagittis purus sit. Scelerisque viverra mauris in aliquam sem fringilla ut morbi. Et leo duis ut diam quam nulla porttitor.</h3>
+        <h3 className='pt-3'>Booking a truseted professional has never been easier. Fill in the from and let us handle the rest. Quick, simple, and reliable.</h3>
         </div>
         <div className=''>
           <form className='grid grid-cols-2 gap-5 pt-10'>
@@ -1212,7 +1260,7 @@ useEffect(() =>
           className='w-[300px] h-[150px] bg-white mix-blend-lighten mt-[-44px]'
           src={logoBg} alt="" />
           <p>
-          Duis ultricies libero sit amet aliquam fermentum. <br /> Nunc tincidunt mollis dui <br /> in tempor
+              Reliable home and commercial services made sikmple. <br /> From plumbing to carpentry, we've got skilled experts <br /> you can trust.
           </p>
           <div className="flex pt-7 gap-5">
             <img src="   https://cdn-icons-png.flaticon.com/512/2370/2370279.png "

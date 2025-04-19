@@ -15,7 +15,7 @@ export const signup = async (req, res, next) =>
         catch(error)
         
         {
-            next(errorHandler(550, 'Error from a function'));
+            next(errorHandler(550, 'User Already Exists'));
         }
     };
 

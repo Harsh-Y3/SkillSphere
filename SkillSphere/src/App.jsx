@@ -4,6 +4,7 @@ import Home from './components/Home'
 import Login from "./components/Login";
 import Header from "./components/Header";
 import Signin from "./components/Signin";
+import Ourwork from "./components/Ourwork";
 
 export default function App() {
 
@@ -13,6 +14,8 @@ export default function App() {
     <Route path="/" element = {<Home />} />
     <Route path="/login" element = {<Login />} />
     <Route path="/signin" element = {<Signin />}/>
+    <Route path="/Ourwork" element = {<Ourwork />} />
+    
   </Routes>
   </BrowserRouter> 
 }

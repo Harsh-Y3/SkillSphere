@@ -98,7 +98,7 @@ export default function Signin() {
               className="mt-5 px-6 py-2 bg-transparent border border-white rounded-lg cursor-pointer"
               
             >
-              SignIn
+              SignUp
             </div>
             </Link>
            
