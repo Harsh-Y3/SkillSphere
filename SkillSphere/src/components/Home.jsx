@@ -279,7 +279,7 @@ useEffect(() =>
         </div>
         
         
-        <motion.div id='home' className=" absolute inset-0 flex flex-col justify-center items-start px-12 max-w-2xl backdrop-blur-lg"
+        <motion.div id='home' className=" absolute inset-0 flex flex-col justify-center items-start px-12 max-w-2xl"
           >
           <motion.p 
           initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }} viewport={{ once: true }}
